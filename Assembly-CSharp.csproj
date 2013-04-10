@@ -163,9 +163,11 @@
     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
     <None Include="Assets\Quarrior Sprites\ReadyAreaFull.xml" />
     <None Include="Assets\Orthello\Examples\4 - Follow Target View\-orthello-config.xml" />
+    <None Include="Assets\Quarrior Sprites\QuiddityDice.xml" />
     <None Include="Assets\Quarrior Sprites\ReadyArea.xml" />
     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
     <None Include="Assets\Orthello\-Read-Me.txt" />
+    <None Include="Assets\Quarrior Sprites\PortalDice.xml" />
     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\orthello-font-30.txt" />
     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
     <None Include="Assets\Orthello\-Update-Upgrade info.txt" />
@@ -173,6 +175,7 @@
     <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
+    <None Include="Assets\Quarrior Sprites\AssistantDice.xml" />
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\Atlases\glyph.xml" />
     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
