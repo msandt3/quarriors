@@ -147,6 +147,7 @@
     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTTimeCycle.cs" />
     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTTouch.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Abilities\Ability.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Abilities\VictoryAbility.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\AssitantCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\PortalCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\QuiddityCard.cs" />
@@ -155,7 +156,9 @@
     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\DeathSpellCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\GrowthSpellCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\LifeSpellCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\ShapingSpellCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\SpellCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\VictorySpellCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Effects\AssitantEffect.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Effects\AttachEffect.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Effects\BurstEffect.cs" />
@@ -173,6 +176,7 @@
     <Compile Include="Assets\Prefabs\Scripts\Effects\MultipleEffect.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Effects\ReactionEffect.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Effects\Reroll.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Effects\ShapingEffect.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Effects\SingleBurstEffect.cs" />
     <Compile Include="Assets\iTween\Plugins\iTween.cs" />
     <Compile Include="Assets\iTween\Sample\MoveSample.cs" />

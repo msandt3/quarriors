@@ -12,4 +12,5 @@ public class AttachEffect : Effect {
 	
 	public AttachEffect() : this(""){
 	}
+	
 }
