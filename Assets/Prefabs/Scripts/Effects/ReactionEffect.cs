@@ -11,4 +11,8 @@ public class ReactionEffect : Effect {
 	
 	public ReactionEffect() : this(""){
 	}
+	
+	public void AttachTo(Object obj){
+		this.AttachedTo = obj;
+	}
 }

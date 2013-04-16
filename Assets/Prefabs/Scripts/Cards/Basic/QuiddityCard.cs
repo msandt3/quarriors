@@ -1,15 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class QuiddityCard : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+public class QuiddityCard : Card {
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public QuiddityCard() : base(0,"Quiddity",null,null){
 	}
 }

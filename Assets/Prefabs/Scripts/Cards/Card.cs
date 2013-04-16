@@ -25,10 +25,27 @@ public class Card{
 	public Card(string name) : this(0,name,null,null){
 	}
 	
+	public Card(int cost, string name) : this(cost, name, null, null){
+	}
+	
 	public Card(int cost, string name, List<Effect> effects) : this(cost,name,effects,null){
 	}
 	
 	public Card(int cost, string name, List<Ability> abilities) : this(cost,name,null,abilities){
+	}
+	
+	public void AddEffect(Effect eff){
+		if(Effects == null){
+			Effects = new List<Effect>();
+		}
+		Effects.Add(eff);
+	}
+	
+	public void AddAbility(Ability ab){
+		if(Abilities == null){
+			Abilities = new List<Ability>();
+		}
+		Abilities.Add(ab);
 	}
 	
 	
