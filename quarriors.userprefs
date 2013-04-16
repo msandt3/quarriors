@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Prefabs\Scripts\Abilities\VictoryAbility.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Prefabs\Scripts\Cards\Spells\VictorySpellCard.cs">
     <Files>
       <File FileName="Assets\Prefabs\Scripts\Effects\ShapingEffect.cs" Line="15" Column="3" />
       <File FileName="Assets\Prefabs\Scripts\Cards\Card.cs" Line="1" Column="1" />
@@ -10,8 +10,9 @@
       <File FileName="Assets\Prefabs\Scripts\Effects\Effect.cs" Line="1" Column="1" />
       <File FileName="Assets\Prefabs\Scripts\Effects\AttachEffect.cs" Line="1" Column="1" />
       <File FileName="Assets\Prefabs\Scripts\Cards\Spells\ShapingSpellCard.cs" Line="7" Column="34" />
-      <File FileName="Assets\Prefabs\Scripts\Abilities\Ability.cs" Line="7" Column="2" />
+      <File FileName="Assets\Prefabs\Scripts\Abilities\Ability.cs" Line="1" Column="1" />
       <File FileName="Assets\Prefabs\Scripts\Abilities\VictoryAbility.cs" Line="12" Column="35" />
+      <File FileName="Assets\Prefabs\Scripts\Cards\Spells\VictorySpellCard.cs" Line="7" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
