@@ -3,7 +3,11 @@ using System.Collections;
 
 public class VictorySpellCard : SpellCard {
 	
-	public VictorySpellCard() : base(9,"VictorySpell"){
+	public VictorySpellCard(Transform VictorySprite) : base(9,"VictorySpell"){
+		this.CardObj = VictorySprite;
 		AddAbility(new VictoryAbility());
+	}
+	
+	public VictorySpellCard() : this(null){
 	}
 }

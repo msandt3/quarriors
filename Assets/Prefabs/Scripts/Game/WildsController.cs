@@ -17,13 +17,13 @@ public class WildsController : MonoBehaviour {
 		/** Set up the Basic Cards **/
 		BasicContainer = (GameObject)Instantiate(basic);
 		BasicContainer.transform.position = new Vector3(0,10,0);
-		GameWilds = new Wilds(BasicContainer);
 		
 		/** Set up the Spell Cards **/
 		setUpSpells ();
 		
 		/** Set up the Creature Cards **/
 		setUpCreatures();
+		GameWilds = new Wilds(BasicContainer,SpellContainer);
 	}
 	
 	// Update is called once per frame
@@ -47,7 +47,7 @@ public class WildsController : MonoBehaviour {
 		}
 		
 		foreach(Transform child in SpellContainer.transform){
-			Debug.Log(child.ToString ());
+			Debug.Log(child.name);				
 		}
 		
 		
@@ -67,10 +67,6 @@ public class WildsController : MonoBehaviour {
 			Transform clone = (Transform)Instantiate (cards[i]);
 			clone.parent = CreatureContainer.transform;
 			clone.transform.position = new Vector3((i-3)*7,-10,0);
-		}
-		
-		foreach(Transform child in SpellContainer.transform){
-			Debug.Log(child.ToString ());
 		}
 		
 	}

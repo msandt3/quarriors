@@ -9,12 +9,14 @@ public class Card{
 	public List<Effect> Effects { get; set; }
 	public List<Ability> Abilities { get; set; }
 	public Transform CardObj { get; set; }
+	public int DiceRemaining { get; set; }
 	
 	public Card(int cost, string name, List<Effect> effects, List<Ability> abilities){
 		this.Cost = cost;
 		this.Name = name;
 		this.Effects = effects;
 		this.Abilities = abilities;
+		this.DiceRemaining = 5;
 	}
 	
 	public Card() : this(0,"",null,null){

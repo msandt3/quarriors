@@ -3,7 +3,11 @@ using System.Collections;
 
 public class ShapingSpellCard : SpellCard {
 
-	public ShapingSpellCard() : base(4,"ShapingSpell"){
+	public ShapingSpellCard(Transform ShapingSprite) : base(4,"ShapingSpell"){
+		this.CardObj = ShapingSprite;
 		AddEffect(new ShapingEffect());
+	}
+	
+	public ShapingSpellCard() : this(null){
 	}
 }

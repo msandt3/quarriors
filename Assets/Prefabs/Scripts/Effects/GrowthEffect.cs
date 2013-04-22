@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class GrowthEffect : MultipleEffect {
 	
 	public GrowthEffect() : base("Growth"){
-		Effects.Add(new GainQuiddity(2));
-		Effects.Add(new Reroll(2,false));
+		addEffect(new GainQuiddity(2));
+		addEffect(new Reroll(2,false));
 	}
 }

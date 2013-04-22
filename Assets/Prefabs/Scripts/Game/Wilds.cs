@@ -17,4 +17,8 @@ public class Wilds {
 	public Wilds(GameObject BasicContainer){
 		this.BasicPile = new Basic(BasicContainer);
 	}
+	public Wilds(GameObject BasicContainer, GameObject SpellContainer){
+		this.BasicPile = new Basic(BasicContainer);
+		this.SpellPile = new Spells(SpellContainer);
+	}
 }
