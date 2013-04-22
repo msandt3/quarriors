@@ -8,7 +8,8 @@ public class WildsController : MonoBehaviour {
 	private GameObject BasicContainer;
 	public GameObject spell;
 	private GameObject SpellContainer;
-	public GameObject CreatureContainer;
+	public GameObject creature;
+	private GameObject CreatureContainer;
 	public Wilds GameWilds;
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,9 @@ public class WildsController : MonoBehaviour {
 		
 		/** Set up the Spell Cards **/
 		setUpSpells ();
+		
+		/** Set up the Creature Cards **/
+		setUpCreatures();
 	}
 	
 	// Update is called once per frame
@@ -46,6 +50,28 @@ public class WildsController : MonoBehaviour {
 			Debug.Log(child.ToString ());
 		}
 		
+		
+	}
+	
+	void setUpCreatures(){
+		CreatureContainer = new GameObject();
+		
+		List<Transform> cards = new List<Transform>();
+		foreach(Transform child in creature.transform){
+			cards.Add(child);
+		}
+		
+		shuffle (cards);
+		
+		for(int i=0; i<5; i++){
+			Transform clone = (Transform)Instantiate (cards[i]);
+			clone.parent = CreatureContainer.transform;
+			clone.transform.position = new Vector3((i-3)*7,-10,0);
+		}
+		
+		foreach(Transform child in SpellContainer.transform){
+			Debug.Log(child.ToString ());
+		}
 		
 	}
 	
