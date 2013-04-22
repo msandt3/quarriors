@@ -8,6 +8,7 @@ public class Card{
 	public string Name {get; set;}
 	public List<Effect> Effects { get; set; }
 	public List<Ability> Abilities { get; set; }
+	public Transform CardObj { get; set; }
 	
 	public Card(int cost, string name, List<Effect> effects, List<Ability> abilities){
 		this.Cost = cost;

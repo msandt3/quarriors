@@ -148,7 +148,7 @@
     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTTouch.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Abilities\Ability.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Abilities\VictoryAbility.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\AssitantCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\AssistantCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\PortalCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\QuiddityCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Card.cs" />
@@ -178,6 +178,11 @@
     <Compile Include="Assets\Prefabs\Scripts\Effects\Reroll.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Effects\ShapingEffect.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Effects\SingleBurstEffect.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Game\Basic.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Game\Creatures.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Game\Spells.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Game\Wilds.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Game\WildsController.cs" />
     <Compile Include="Assets\iTween\Plugins\iTween.cs" />
     <Compile Include="Assets\iTween\Sample\MoveSample.cs" />
     <Compile Include="Assets\iTween\Sample\RotateSample.cs" />
