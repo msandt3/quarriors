@@ -30,8 +30,4 @@ public class BurstEffect : Effect {
 			this.Bursts.Add (eff);
 		}
 	}
-	
-	public void setCombined(bool comb){
-		this.Combined = comb;
-	}
 }

@@ -1,16 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Prefabs\Scripts\Game\WildsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Prefabs\Scripts\Effects\WizardBurstEffect.cs">
     <Files>
-      <File FileName="Assets\Prefabs\Scripts\Game\WildsController.cs" Line="48" Column="3" />
-      <File FileName="Assets\Prefabs\Scripts\Game\Basic.cs" Line="1" Column="1" />
-      <File FileName="Assets\Prefabs\Scripts\Game\Creatures.cs" Line="1" Column="1" />
-      <File FileName="Assets\Prefabs\Scripts\Game\Spells.cs" Line="1" Column="1" />
-      <File FileName="Assets\Prefabs\Scripts\Cards\Basic\AssistantCard.cs" Line="1" Column="1" />
-      <File FileName="Assets\Prefabs\Scripts\Cards\Basic\PortalCard.cs" Line="1" Column="1" />
-      <File FileName="Assets\Prefabs\Scripts\Cards\Basic\QuiddityCard.cs" Line="1" Column="1" />
-      <File FileName="Assets\Prefabs\Scripts\Game\Wilds.cs" Line="19" Column="3" />
-      <File FileName="Assets\Prefabs\Scripts\Cards\Card.cs" Line="11" Column="18" />
+      <File FileName="Assets\Prefabs\Scripts\Effects\MultipleEffect.cs" Line="1" Column="1" />
+      <File FileName="Assets\Prefabs\Scripts\Effects\Reroll.cs" Line="1" Column="1" />
+      <File FileName="Assets\Prefabs\Scripts\Effects\DrawAndRoll.cs" Line="1" Column="1" />
+      <File FileName="Assets\Prefabs\Scripts\Effects\WizardDoubleEffect.cs" Line="8" Column="40" />
+      <File FileName="Assets\Prefabs\Scripts\Effects\DefenseEffect.cs" Line="12" Column="3" />
+      <File FileName="Assets\Prefabs\Scripts\Effects\WizardBurstEffect.cs" Line="9" Column="44" />
+      <File FileName="Assets\Prefabs\Scripts\Effects\DefenderBurstEffect.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

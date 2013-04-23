@@ -23,7 +23,7 @@ public class WildsController : MonoBehaviour {
 		
 		/** Set up the Creature Cards **/
 		setUpCreatures();
-		GameWilds = new Wilds(BasicContainer,SpellContainer);
+		GameWilds = new Wilds(BasicContainer,SpellContainer,CreatureContainer);
 	}
 	
 	// Update is called once per frame
