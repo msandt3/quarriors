@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2DE2BB7E-377F-A0AC-0EB5-4E814EA800EF}</ProjectGuid>
+    <ProjectGuid>{485C4778-69DD-75C4-A7D7-0380D0EF304B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>
@@ -45,10 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CardSlideLeft.cs" />
-    <Compile Include="Assets\CardSlideRight.cs" />
-    <Compile Include="Assets\CardZoom.cs" />
-    <Compile Include="Assets\LocationZoom.cs" />
+    <Compile Include="Assets\Die.cs" />
+    <Compile Include="Assets\Game.cs" />
+    <Compile Include="Assets\GameEngine.cs" />
     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\(Unity Pro) NavMesh Pathfinding\Agent.cs" />
     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\3D integration\App.cs" />
     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\3D integration\Arrow.cs" />
@@ -150,6 +149,7 @@
     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTSounds.cs" />
     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTTimeCycle.cs" />
     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTTouch.cs" />
+    <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Abilities\Ability.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Abilities\VictoryAbility.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\AssitantCard.cs" />
@@ -183,6 +183,11 @@
     <Compile Include="Assets\Prefabs\Scripts\Effects\ShapingEffect.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Effects\SingleBurstEffect.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardAreaController.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardSlideLeft.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardSlideRight.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardZoom.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Game\Cards\LocationZoom.cs" />
+    <Compile Include="Assets\Side.cs" />
     <Compile Include="Assets\iTween\Plugins\iTween.cs" />
     <Compile Include="Assets\iTween\Sample\MoveSample.cs" />
     <Compile Include="Assets\iTween\Sample\RotateSample.cs" />
@@ -246,11 +251,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{670F4852-8E9D-1E19-15B7-CB7183DE1021}</Project>
+      <Project>{47104E63-D126-49F8-A820-0C7B9ECFD18C}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{1EB8889A-5AA5-3CD4-A658-456177ECF7E3}</Project>
+      <Project>{5A3E740D-DE5F-ED2E-521E-9D48E8C8BAAC}</Project>
       <Name>Assembly-UnityScript-firstpass</Name>
     </ProjectReference>
   </ItemGroup>

@@ -69,7 +69,7 @@ public class CardAreaController : MonoBehaviour {
 		
 		shuffle (creatures);
 		
-		for(int i=0; i<5; i++){
+		for(int i=0; i<7; i++){
 			Transform card;
 			card = Instantiate(creatures[i]) as Transform;
 			card.position = new Vector3(xStart + (10 * numCards), 0 , 0);
