@@ -2,13 +2,13 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CardAreaController : MonoBehaviour {
+public class CardAreaController : MonoBehaviour{
 	
-	public GameObject ZoomArea;
-	public GameObject BasicDeck;
-	public GameObject SpellDeck;
-	public GameObject CreatureDeck;
-	public GameObject CardArea;
+	public GameObject ZoomArea { get; set;}
+	public GameObject BasicDeck { get; set;}
+	public GameObject SpellDeck { get; set;}
+	public GameObject CreatureDeck { get; set;}
+	public GameObject CardArea { get; set;}
 	
 	private float xStart = -25.0f;
 	private float yStart = 0.0f;
@@ -16,20 +16,18 @@ public class CardAreaController : MonoBehaviour {
 	//private CardZoom script;
 	
 	private List<Card> cards = new List<Card>();
+		
+	void Start(){
+		
+	}
 	
-	// Use this for initialization
-	void Start () {
+	void Update(){
+	}
+	
+	public void SetUpDecks(){
 		SetUpBasic();
 		SetUpSpells ();
 		SetUpCreatures();
-		foreach(Card card in cards){
-			Debug.Log(card.ToString());
-		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 	
 	void SetUpBasic(){
@@ -57,6 +55,7 @@ public class CardAreaController : MonoBehaviour {
 		for(int i=0; i<3; i++){
 			Transform card;
 			card = Instantiate(spells[i]) as Transform;
+			Debug.Log (card.name);
 			addCard(card);
 			card.position = new Vector3(xStart + (10 * numCards), 0 , 0);
 			card.parent = CardArea.transform;
@@ -142,22 +141,26 @@ public class CardAreaController : MonoBehaviour {
 		case "WizardCard(Clone)":
 			cards.Add(new WizardCard());
 			break;
-		case "DeathSpellCard(Clone)":
+		case "DeathCard(Clone)":
 			cards.Add(new DeathSpellCard());
 			break;
-		case "GrowthSpellCard(Clone)":
+		case "GrowthCard(Clone)":
 			cards.Add(new GrowthSpellCard());
 			break;
-		case "LifeSpellCard(Clone)":
+		case "LifeCard(Clone)":
 			cards.Add(new LifeSpellCard());
 			break;
-		case "ShapingSpellCard(Clone)":
+		case "ShapingCard(Clone)":
 			cards.Add(new ShapingSpellCard());
 			break;
-		case "VictorySpellCard(Clone)":
+		case "VictoryCard(Clone)":
 			cards.Add(new VictorySpellCard());
 			break;
 			
 		}
+	}
+	
+	public List<Card> GetCards(){
+		return cards;
 	}
 }
