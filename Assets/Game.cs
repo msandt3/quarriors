@@ -19,5 +19,13 @@ public class Game {
 		phase = 1;
 	}
 	
+	public bool isWin(){
+		//either player has 15 glory
+		//wilds have four cards without dice
+		
+		//otherwise
+		return false;
+	}
+	
 	
 }
