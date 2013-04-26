@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class GrowthSpellCard : SpellCard {
+public class GrowthSpellCard : Card {
 
-	public GrowthSpellCard() : base(5,"GrowthSpell"){
-		AddEffect(new GrowthEffect());
+	public GrowthSpellCard() : base("G"){
 	}
 }

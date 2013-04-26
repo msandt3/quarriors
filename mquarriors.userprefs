@@ -1,14 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Prefabs\Scripts\Game\Cards\CardAreaController.cs">
-    <Files>
-      <File FileName="Assets\LocationZoom.cs" Line="1" Column="1" />
-      <File FileName="Assets\CardSlideLeft.cs" Line="1" Column="1" />
-      <File FileName="Assets\CardSlideRight.cs" Line="1" Column="1" />
-      <File FileName="Assets\CardZoom.cs" Line="3" Column="1" />
-      <File FileName="Assets\Prefabs\Scripts\Game\Cards\CardAreaController.cs" Line="22" Column="20" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

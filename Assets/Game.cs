@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Game {
 	
@@ -7,6 +8,7 @@ public class Game {
 	Player p2;
 	private int turn;
 	private int phase;
+	
 	
 	public Game() {
 		p1 = new Player();

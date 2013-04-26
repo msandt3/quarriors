@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class ShapingSpellCard : SpellCard {
+public class ShapingSpellCard : Card {
 
-	public ShapingSpellCard() : base(4,"ShapingSpell"){
-		AddEffect(new ShapingEffect());
+	public ShapingSpellCard() : base("S"){
 	}
 }

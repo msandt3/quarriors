@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class DeathSpellCard : SpellCard {
+public class DeathSpellCard : Card {
 	
-	public DeathSpellCard() : base(5,"DeathSpell"){
-		AddEffect(new DeathBurstEffect());
+	public DeathSpellCard() : base("D"){
 	}
 }

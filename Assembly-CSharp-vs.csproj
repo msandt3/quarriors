@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{485C4778-69DD-75C4-A7D7-0380D0EF304B}</ProjectGuid>
+    <ProjectGuid>{2DE2BB7E-377F-A0AC-0EB5-4E814EA800EF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>
@@ -152,16 +152,24 @@
     <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Abilities\Ability.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Abilities\VictoryAbility.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\AssitantCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\AssistantCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\PortalCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\QuiddityCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Card.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\CreatureCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\DeathDealerCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\DefenderCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\DevoteeCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\DragonCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\GoblinCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\HagCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\OozeCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\SpiritCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\WarriorCard.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\WizardCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\DeathSpellCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\GrowthSpellCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\LifeSpellCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\ShapingSpellCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\SpellCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\VictorySpellCard.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Effects\AssitantEffect.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Effects\AttachEffect.cs" />
@@ -254,7 +262,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{47104E63-D126-49F8-A820-0C7B9ECFD18C}</Project>
+      <Project>{670F4852-8E9D-1E19-15B7-CB7183DE1021}</Project>
       <Name>Assembly-CSharp-firstpass-vs</Name>
     </ProjectReference>
   </ItemGroup>

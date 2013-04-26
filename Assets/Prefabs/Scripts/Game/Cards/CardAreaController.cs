@@ -15,11 +15,16 @@ public class CardAreaController : MonoBehaviour {
 	private int numCards = 0;
 	//private CardZoom script;
 	
+	private List<Card> cards = new List<Card>();
+	
 	// Use this for initialization
 	void Start () {
 		SetUpBasic();
 		SetUpSpells ();
 		SetUpCreatures();
+		foreach(Card card in cards){
+			Debug.Log(card.ToString());
+		}
 	}
 	
 	// Update is called once per frame
@@ -31,6 +36,7 @@ public class CardAreaController : MonoBehaviour {
 		foreach(Transform basic in BasicDeck.transform){
 			Transform card;
 			card = Instantiate(basic) as Transform;
+			addCard(card);
 			card.position = new Vector3(xStart + (10 * numCards), 0 , 0);
 			card.parent = CardArea.transform;
 			CardZoom script = card.gameObject.GetComponentInChildren<CardZoom>();
@@ -51,6 +57,7 @@ public class CardAreaController : MonoBehaviour {
 		for(int i=0; i<3; i++){
 			Transform card;
 			card = Instantiate(spells[i]) as Transform;
+			addCard(card);
 			card.position = new Vector3(xStart + (10 * numCards), 0 , 0);
 			card.parent = CardArea.transform;
 			CardZoom script = card.gameObject.GetComponentInChildren<CardZoom>();
@@ -72,6 +79,7 @@ public class CardAreaController : MonoBehaviour {
 		for(int i=0; i<7; i++){
 			Transform card;
 			card = Instantiate(creatures[i]) as Transform;
+			addCard(card);
 			card.position = new Vector3(xStart + (10 * numCards), 0 , 0);
 			card.parent = CardArea.transform;
 			CardZoom script = card.gameObject.GetComponentInChildren<CardZoom>();
@@ -91,5 +99,65 @@ public class CardAreaController : MonoBehaviour {
 		Transform temp = list[i];
 		list[i] = list[j];
 		list[j] = temp;
+	}
+
+	void addCard(Transform card){
+		switch(card.name){
+		case "AssistantCard(Clone)":
+			cards.Add(new AssistantCard());
+			break;
+		case "QuiddityCard(Clone)":
+			cards.Add(new QuiddityCard());
+			break;
+		case "PortalCard(Clone)":
+			cards.Add(new PortalCard());
+			break;
+		case "DeathDealerCard(Clone)":
+			cards.Add(new DeathDealerCard());
+			break;
+		case "DefenderCard(Clone)":
+			cards.Add(new DefenderCard());
+			break;
+		case "DevoteeCard(Clone)":
+			cards.Add(new DevoteeCard());
+			break;
+		case "DragonCard(Clone)":
+			cards.Add(new DragonCard());
+			break;
+		case "GoblinCard(Clone)":
+			cards.Add(new GoblinCard());
+			break;
+		case "HagCard(Clone)":
+			cards.Add(new HagCard());
+			break;
+		case "OozeCard(Clone)":
+			cards.Add(new OozeCard());
+			break;
+		case "SpiritCard(Clone)":
+			cards.Add (new SpiritCard());
+			break;
+		case "WarriorCard(Clone)":
+			cards.Add(new WizardCard());
+			break;
+		case "WizardCard(Clone)":
+			cards.Add(new WizardCard());
+			break;
+		case "DeathSpellCard(Clone)":
+			cards.Add(new DeathSpellCard());
+			break;
+		case "GrowthSpellCard(Clone)":
+			cards.Add(new GrowthSpellCard());
+			break;
+		case "LifeSpellCard(Clone)":
+			cards.Add(new LifeSpellCard());
+			break;
+		case "ShapingSpellCard(Clone)":
+			cards.Add(new ShapingSpellCard());
+			break;
+		case "VictorySpellCard(Clone)":
+			cards.Add(new VictorySpellCard());
+			break;
+			
+		}
 	}
 }

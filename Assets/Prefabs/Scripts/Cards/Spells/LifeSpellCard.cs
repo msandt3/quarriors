@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class LifeSpellCard : SpellCard {
+public class LifeSpellCard : Card {
 	
-	public LifeSpellCard() : base(4,"LifeSpell"){
-		AddEffect(new LifeEffect());
+	public LifeSpellCard() : base("L"){
 	}
 }
