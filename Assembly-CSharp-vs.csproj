@@ -54,6 +54,7 @@
     <Compile Include="Assets\Dice Scripts\SideScripts\SidesTypes\CreatureSide.cs" />
     <Compile Include="Assets\Dice Scripts\SideScripts\SidesTypes\QuidSide.cs" />
     <Compile Include="Assets\Dice Scripts\SideScripts\SidesTypes\SpellSide.cs" />
+    <Compile Include="Assets\GUIChoiceWindows.cs" />
     <Compile Include="Assets\Game Scripts\ActiveArea.cs" />
     <Compile Include="Assets\Game Scripts\DiceBag.cs" />
     <Compile Include="Assets\Game Scripts\Player.cs" />
