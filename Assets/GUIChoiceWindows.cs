@@ -63,7 +63,7 @@ public class GUIChoiceWindows : MonoBehaviour {
 	
 	void DiceChoiceWindow(int windowID){
 		if(windowID == 1){
-			//add check to player active area
+			//p.
 			
 			
 		}
