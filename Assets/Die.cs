@@ -90,6 +90,8 @@ public class Die {
 //		SideList.Add (s4);
 //		SideList.Add (s5);
 //		SideList.Add (s6);
+		this.ActiveSide = SideList[0];
+		this.Spent = false;
 	}
 	
 	public Side roll() {

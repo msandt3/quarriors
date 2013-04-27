@@ -55,7 +55,7 @@ public class GameEngine : MonoBehaviour {
 		//move all creature & spell die from ready to used
 		//(Optional) choose to cull die
 		//(Optional) Handle creature on score abilities
-		yield return StartCoroutine(ScorePhase());
+		yield return ScorePhase();
 		
 		//Draw & Roll Phase
 		//shuffle & roll dice
@@ -100,6 +100,10 @@ public class GameEngine : MonoBehaviour {
 	
 	IEnumerator CullDie(){
 		//wait for player to choose if they want to cull a die
+		Die d = null;
+		//get the die from the used pile
+		GameState.p1.CullDie(d);
+		GameState.CullDie(d);
 		yield return null;
 	}
 	
@@ -170,11 +174,12 @@ public class GameEngine : MonoBehaviour {
 		//total quiddity in active pool & effects, creatures & spells
 		GameState.p1.UpdateQuiddity();
 		while(numBuys > 0 && GameState.p1.ActiveQuid > 0){
-			//purchase die
+			//purchase die -- the GUI should return a string corresponding to the bough die name
 			yield return PurchaseDie();
+			
 			//decrement num buys & active total quid
 			numBuys--;
-			GameState.p1.UpdateQuiddity();
+			
 		}
 		//move dice from active pool to used pile
 		GameState.p1.AllActiveToUsed();
@@ -184,6 +189,9 @@ public class GameEngine : MonoBehaviour {
 	
 	IEnumerator PurchaseDie(){
 		//prompt player to purchase die
+		Die newDie = GameState.BuyDie("BQ");
+		GameState.p1.AddBoughtDie(newDie);
+		GameState.p1.UpdateQuiddity();
 		yield return null;
 	}
 	

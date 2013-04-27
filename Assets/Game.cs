@@ -27,5 +27,24 @@ public class Game {
 			return false;
 	}
 	
+	public Die BuyDie(string name){
+		foreach(Card card in Cards){
+			if(card.Name == name){
+				card.DiceRemaining--;
+				break;
+			}
+		}
+		Die newDie = new Die(name);
+		return newDie;
+	}
+	
+	public void CullDie(Die d){
+		foreach(Card card in Cards){
+			if(card.Name == d.tag){
+				card.DiceRemaining++;
+			}
+		}
+	}
+	
 	
 }

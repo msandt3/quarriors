@@ -168,4 +168,13 @@ public class Player{
 		}
 		return ret;
 	}
+	
+	public void AddBoughtDie(Die d){
+		this.UsedPile.Add(d);
+	}
+	
+	public void CullDie(Die d){
+		this.UsedPile.Remove(d);
+	}
+		
 }
