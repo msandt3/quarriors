@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Player{
 	
 	public int Glory { get; set; }
+	public int ActiveQuid { get; set; }
 	public List<Die> Bag;
 	public List<Die> ActivePool;
 	public List<Die> ReadyArea;
@@ -15,6 +16,9 @@ public class Player{
 	public List<string> tags;
 	public Dictionary<string,int> cardCosts;
 	public string[] cards = { "BQ", "A", "P", "WH", "SG", "GS", "DHQ", "PO","WQ","QD","DD","QW","DP","S","G","D","V","L"};
+	
+	
+	
 	public Player() {
 		cardCosts = new Dictionary<string,int>();
 		AddDie ();
@@ -49,15 +53,32 @@ public class Player{
 		Shuffle (Bag);
 		for (int i = 0; i < times; i++){
 			if (Bag.Count != 0) {
+				Bag[0].roll();
 				ActivePool.Add (Bag[0]);
 				Bag.RemoveAt (0);
 			}
 			else {
 				UsedtoBag ();
+				Shuffle(Bag);
+				Bag[0].roll ();
 				ActivePool.Add (Bag[0]);
 				Bag.RemoveAt (0);
 			}
 		}
+	}
+	
+	public void DrawAndRoll(){
+		BagtoActive(6);
+	}
+	
+	public void SpellstoReady(){
+		foreach(Die d in ActivePool){
+			if(d.IsActiveSpell()){
+				ReadyArea.Add(d);
+				ActivePool.Remove(d);
+			}
+		}
+		
 	}
 	
 	void UsedtoBag() {
@@ -81,6 +102,13 @@ public class Player{
 		ActivePool.RemoveAt (index);
 	}
 	
+	public void AllActiveToUsed(){
+		foreach(Die d in ActivePool){
+			UsedPile.Add(d);
+			ActivePool.Remove(d);
+		}
+	}
+	
 	void AddDie() {
 		cardCosts.Add ("BQ", 0);
 		cardCosts.Add ("A", 1);
@@ -100,5 +128,44 @@ public class Player{
 		cardCosts.Add ("D", 6);
 		cardCosts.Add ("V", 7);
 		cardCosts.Add ("L", 4);
+	}
+	
+	public void ScoreCreatures(){
+		foreach(Die d in ReadyArea){
+			Glory += d.ActiveSide.glory;
+		}
+	}
+
+	public void UpdateQuiddity(){
+		foreach(Die d in ActivePool){
+			ActiveQuid += d.ActiveSide.quiddity;
+		}
+	}
+
+	public void SpentToUsed(){
+		foreach(Die d in ActivePool){
+			if(d.Spent){
+				UsedPile.Add(d);
+				ActivePool.Remove(d);
+				d.Spent = false;
+			}
+		}
+	}
+
+	public int TotalAttack(){
+		int ret = 0;
+		foreach(Die d in ReadyArea){
+			ret += d.ActiveSide.power;
+		}
+	}
+
+	public int NumCreaturesReady(){
+		int ret = 0;
+		foreach(Die d in ReadyArea){
+			if(d.IsActiveCreature()){
+				ret++;
+			}
+		}
+		return ret;
 	}
 }

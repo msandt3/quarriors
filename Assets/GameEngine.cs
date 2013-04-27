@@ -46,6 +46,10 @@ public class GameEngine : MonoBehaviour {
 	}
 	
 	IEnumerator Player1Turn(){
+		
+		//reset p1's quiddity count
+		GameState.p1.ActiveQuid = 0;
+		
 		//Scoring Phase
 		//update player gamestate with creature score
 		//move all creature & spell die from ready to used
@@ -85,7 +89,11 @@ public class GameEngine : MonoBehaviour {
 	
 	IEnumerator ScorePhase(){
 		//update gamestate with glory gained
+		GameState.p1.ScoreCreatures(); //need to do something about player gaining enough glory after scoring
+		
 		//move all creature & spell die to used pile
+		GameState.p1.AllActiveToUsed();
+		
 		yield return CullDie();
 		yield return HandleOnScore();
 	}
@@ -103,16 +111,9 @@ public class GameEngine : MonoBehaviour {
 	IEnumerator DrawAndRoll(){
 		//if 6 or more dice - draw and roll
 		//move to active
+		GameState.p1.DrawAndRoll();
 		//resolve immediate effects
 		yield return ResolveImmediate();
-		
-		//else - draw and roll
-		//move to active 
-		//resolve immediate effects
-		//refill bag from used
-		yield return ResolveImmediate();
-		
-		//draw and roll again
 	}
 	
 	IEnumerator ResolveImmediate(){
@@ -122,9 +123,13 @@ public class GameEngine : MonoBehaviour {
 		
 	IEnumerator ReadyAndSummon(){
 		//move spells to ready area
+		GameState.p1.SpellstoReady();
+		//update players quiddity
+		GameState.p1.UpdateQuiddity();
 		//summon creatures
 		yield return SummonCreature();
 		//move spent dice to used pile
+		GameState.p1.SpentToUsed();
 	}
 	
 	IEnumerator SummonCreature(){
@@ -133,14 +138,19 @@ public class GameEngine : MonoBehaviour {
 	}
 	
 	IEnumerator Attack(){
+		bool battle = true;
 		while(battle){
 			//total attack number
+			int TotAtt = GameState.p1.TotalAttack();
 			//opponent selects defend order
 			yield return PickComputerDefender();
 			//subtract defense from attack
 			//handle on death events
 			yield return HandleOnDeath();
 			//if no more creatures or attack -- phase over
+			if(TotAtt == 0 || GameState.p2.NumCreaturesReady() == 0){
+				battle = false;
+			}
 		}
 	}
 	
@@ -156,13 +166,18 @@ public class GameEngine : MonoBehaviour {
 	
 	IEnumerator HandleCaptureDie(){
 		//determine num buys allowed
+		int numBuys = 1;
 		//total quiddity in active pool & effects, creatures & spells
-		while(numBuys > 0){
+		GameState.p1.UpdateQuiddity();
+		while(numBuys > 0 && GameState.p1.ActiveQuid > 0){
 			//purchase die
 			yield return PurchaseDie();
 			//decrement num buys & active total quid
+			numBuys--;
+			GameState.p1.UpdateQuiddity();
 		}
 		//move dice from active pool to used pile
+		GameState.p1.AllActiveToUsed();
 		//move spells from ready to used
 		yield return MoveSpells ();
 	}

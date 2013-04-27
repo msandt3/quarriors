@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class Game {
 	public List<Card> Cards { get; set; }
-	Player p1;
-	Player p2;
+	public Player p1 { get; set; }
+	public Player p2 { get; set; }
 	private int turn;
 	private int phase;
 	
@@ -20,11 +20,11 @@ public class Game {
 	}
 	
 	public bool isWin(){
-		//either player has 15 glory
-		//wilds have four cards without dice
-		
-		//otherwise
-		return false;
+		if(p1.Glory == 16 || p2.Glory == 16){
+			return true;
+		}
+		else
+			return false;
 	}
 	
 	

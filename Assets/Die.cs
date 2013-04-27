@@ -12,6 +12,11 @@ public class Die {
 	private Side s6;
 	public string tag;
 	public List<Side> SideList;
+	public bool Spent { get; set; }
+	
+	private string[] spelltags = {"S","G","D","V","L"};
+	
+	public Side ActiveSide { get; set; }
 	
 	public Die(string label) {
 		tag = label;
@@ -89,6 +94,7 @@ public class Die {
 	
 	public Side roll() {
 		int rand = Random.Range (0,6);
+		ActiveSide = SideList[rand];
 		return SideList[rand];
 	}
 	
@@ -252,5 +258,23 @@ public class Die {
 		SideList.Add (new Side(0,0,0,0,0,0,2,-1,this));
 		SideList.Add (new Side(0,0,0,0,0,0,2,-1,this));
 		SideList.Add (new Side(0,0,0,0,0,0,2,-1,this));
+	}
+	//determines if Die's active side is a spell
+	public bool IsActiveSpell(){
+		for(int i=0; i<spelltags.Length; i++){
+			if(this.tag == spelltags[i]){
+				if(this.ActiveSide.spelltype != 0){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public bool IsActiveCreature(){
+		if(this.ActiveSide.glory != 0)
+			return true;
+		else
+			return false;
 	}
 }
