@@ -13,6 +13,7 @@ public class GUIChoiceWindows : MonoBehaviour {
 	bool isCullCheckWindow;
 	bool isResolveWindow;
 	bool isCullWindow;
+	bool isShowDiceWindow;
 	
 	//this is the waiting variable
 	public int choiceNumber;
@@ -31,6 +32,7 @@ public class GUIChoiceWindows : MonoBehaviour {
 	Rect summonRect;
 	Rect defenceRect;
 	Rect buyRect;
+	Rect showDiceRect;
 	
 	//IMPORTANT BOOLEAN: used to see if someone has made a choice....to be used in GameEngine
 	//(see GUITestingScript for example on use);
@@ -52,12 +54,14 @@ public class GUIChoiceWindows : MonoBehaviour {
 		isCullCheckWindow = false;
 		isCullWindow = false;
 		isResolveWindow = false;
+		isShowDiceWindow = false;
 		cullCheckRect = ScreenCenterRect(300,150);
 		resolveRect = ScreenCenterRect(500,400);
 		cullRect = ScreenCenterRect(500,400);
 		summonRect = ScreenCenterRect(500,400);
 		defenceRect = ScreenCenterRect(500,400);
 		buyRect = ScreenCenterRect(500,400);
+		showDiceRect = ScreenCenterRect(500,400);
 		scrollViewVector = Vector2.zero;
 		SetUpTagDictionary();
 	}
@@ -75,6 +79,7 @@ public class GUIChoiceWindows : MonoBehaviour {
 		if(isSummonWindow) summonRect = GUI.Window(1,summonRect,DiceChoiceWindow, "Choose a creature to Summon...");
 		if(isDefenceWindow) defenceRect = GUI.Window(1,defenceRect,DiceChoiceWindow, "Choose a creature to Defend with...");
 		if(isBuyWindow) buyRect = GUI.Window(1,buyRect,DiceChoiceWindow, "Choose a die from the wilds to buy...");
+		if(isShowDiceWindow) showDiceRect = GUI.Window(1,showDiceRect,DiceShowWindow,"Showing Dice...");
 		
 	}
 	
@@ -119,6 +124,30 @@ public class GUIChoiceWindows : MonoBehaviour {
 			
 			
 		GUI.DragWindow (new Rect (0,0, 10000, 20));	
+	}
+	
+	void DiceShowWindow(int windowID){
+		int diceCount = displayedDie.Count;
+		if(windowID == 1){
+			scrollViewVector=GUI.BeginScrollView(new Rect(20,20,400,250),scrollViewVector,new Rect(0,0,300,(diceCount*40)));
+			for(int i=0; i<diceCount; i++){
+				int curSide = displayedDie[i].SideList.IndexOf(displayedDie[i].ActiveSide);
+				GUI.Box(new Rect(0,(i*40),300,30),diceNameTable[displayedDie[i].tag] +": Side "+curSide);				
+			}
+			
+			
+			GUI.EndScrollView();
+			if(GUI.Button(new Rect(20,280,50,30),"Done")){
+				choiceNumber = DONE;
+			}
+		}
+			
+			
+			
+		GUI.DragWindow (new Rect (0,0, 10000, 20));	
+		
+		
+		
 	}
 				
 			
@@ -316,6 +345,22 @@ public class GUIChoiceWindows : MonoBehaviour {
 		}
 		else{
 			return null;
+		}
+		
+	}
+	
+	//This function shows Dice with no interactivity...besides done button
+	public void showDiceViewWindow(List<Die> dieToDisplay){
+		displayedDie = dieToDisplay;
+		if(!isShowDiceWindow){
+			scrollViewVector = Vector2.zero;
+			isShowDiceWindow = true;
+			hasChosen = false;
+			choiceNumber = WAITING;
+		}
+		if(choiceNumber==DONE){
+			isShowDiceWindow = false;
+			hasChosen = true;
 		}
 		
 	}

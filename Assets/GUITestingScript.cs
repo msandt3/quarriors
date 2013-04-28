@@ -40,7 +40,7 @@ public class GUITestingScript : MonoBehaviour {
 		if(startTest){
 			
 			//Replace any kind of window function here to test
-			ResolveWindowTest();
+			DiceViewTest();
 			
 			
 		}
@@ -85,6 +85,17 @@ public class GUITestingScript : MonoBehaviour {
 				startTest = false;
 			}
 		}
+		
+	}
+	
+	public void DiceViewTest(){
+		gui.showDiceViewWindow(dice);
+		if(gui.hasChosen){
+			Debug.Log("Done with Window");
+			startTest = false;
+		}
+			
+		
 		
 	}
 	
