@@ -279,4 +279,32 @@ public class Die {
 		else
 			return false;
 	}
+
+	public int GetMaxGlory(){
+		int max = int.MinValue;
+		foreach(Side s in SideList){
+			if(s.glory > max)
+				max = s.glory;
+		}
+		
+		return max;
+	}
+	
+	public int GetMaxAttack(){
+		int max = int.MinValue;
+		foreach(Side s in SideList){
+			if(s.power > max)
+				max = s.power;
+		}
+		return max;
+	}
+	
+	public int GetMaxDefense(){
+		int max = int.MinValue;
+		foreach(Side s in SideList){
+			if(s.toughness > max)
+				max = s.toughness;
+		}
+		return max;
+	}
 }

@@ -176,5 +176,95 @@ public class Player{
 	public void CullDie(Die d){
 		this.UsedPile.Remove(d);
 	}
+	
+	/// <summary>
+	/// Gets the expected glory.
+	/// </summary>
+	/// <returns>
+	/// The expected glory of all creatures in the 'deck' of this player
+	/// </returns>
+	public float GetExpectedGlory(){
+		int totalglory = 0;
+		int totaldice = 0;
+		totaldice += Bag.Count;
+		//dice in the bag
+		foreach(Die d in Bag){
+			totalglory += d.GetMaxGlory();
+		}
+		totaldice += ActivePool.Count;
+		foreach(Die d in ActivePool){
+			totalglory += d.GetMaxGlory();
+		}
+		totaldice += UsedPile.Count;
+		foreach(Die d in UsedPile){
+			totalglory += d.GetMaxGlory();
+		}
+		totaldice += ReadyArea.Count;
+		foreach(Die d in ReadyArea){
+			totalglory += d.GetMaxGlory();
+		}
+		totaldice += SpentPile.Count;
+		foreach(Die d in SpentPile){
+			totalglory += d.GetMaxGlory();
+		}
 		
+		return (float)totalglory/(float)totaldice;
+	}
+	
+	
+	public float GetExpectedAttack(){
+		int totalattack = 0;
+		int totaldice = 0;
+		totaldice += Bag.Count;
+		//dice in the bag
+		foreach(Die d in Bag){
+			totalattack += d.GetMaxAtttack();
+		}
+		totaldice += ActivePool.Count;
+		foreach(Die d in ActivePool){
+			totalattack += d.GetMaxAttack();
+		}
+		totaldice += UsedPile.Count;
+		foreach(Die d in UsedPile){
+			totalattack += d.GetMaxAttack();
+		}
+		totaldice += ReadyArea.Count;
+		foreach(Die d in ReadyArea){
+			totalattack += d.GetMaxAttack();
+		}
+		totaldice += SpentPile.Count;
+		foreach(Die d in SpentPile){
+			totalattack += d.GetMaxAttack();
+		}
+		
+		return (float)totalattack/(float)totaldice;
+	}
+	
+	public float GetExpectedDefense(){
+		int totaldef = 0;
+		int totaldice = 0;
+		totaldice += Bag.Count;
+		//dice in the bag
+		foreach(Die d in Bag){
+			totaldef += d.GetMaxDefense();
+		}
+		totaldice += ActivePool.Count;
+		foreach(Die d in ActivePool){
+			totaldef += d.GetMaxDefense();
+		}
+		totaldice += UsedPile.Count;
+		foreach(Die d in UsedPile){
+			totaldef += d.GetMaxDefense();
+		}
+		totaldice += ReadyArea.Count;
+		foreach(Die d in ReadyArea){
+			totaldef += d.GetMaxDefense();
+		}
+		totaldice += SpentPile.Count;
+		foreach(Die d in SpentPile){
+			totaldef += d.GetMaxDefense();
+		}
+		
+		return (float)totaldef/(float)totaldice;
+	}
 }

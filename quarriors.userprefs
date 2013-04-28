@@ -1,9 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GameEngine.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game.cs">
     <Files>
-      <File FileName="Assets\GameEngine.cs" Line="44" Column="8" />
-      <File FileName="Assets\Game.cs" Line="26" Column="14" />
+      <File FileName="Assets\GameEngine.cs" Line="193" Column="3" />
+      <File FileName="Assets\Game.cs" Line="44" Column="26" />
+      <File FileName="Assets\Player.cs" Line="177" Column="27" />
+      <File FileName="Assets\Die.cs" Line="94" Column="22" />
+      <File FileName="Assets\Side.cs" Line="32" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
