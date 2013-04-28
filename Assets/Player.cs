@@ -130,10 +130,15 @@ public class Player{
 		cardCosts.Add ("L", 4);
 	}
 	
-	public void ScoreCreatures(){
+	public int ScoreCreatures(){
+		int i = 0;
 		foreach(Die d in ReadyArea){
 			Glory += d.ActiveSide.glory;
+			if (d.ActiveSide.glory > 0) {
+				i++;
+			}
 		}
+		return i;
 	}
 
 	public void UpdateQuiddity(){

@@ -2,26 +2,26 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class GUIChoiceWindows : MonoBehaviour {
+public class GUIChoiceWindows : MonoBehaviour{
 	
 	//Player p;
 	
 	//Window Showing booleans
-	bool isDefenceWindow;
-	bool isBuyWindow;
-	bool isSummonWindow;
-	bool isCullCheckWindow;
-	bool isResolveWindow;
-	bool isCullWindow;
+	public bool isDefenceWindow;
+	public bool isBuyWindow;
+	public bool isSummonWindow;
+	public bool isCullCheckWindow;
+	public bool isResolveWindow;
+	public bool isCullWindow;
 	
 	//this is the waiting variable
 	public int choiceNumber;
 	
 	//static variables used in determining state of window
-	private static int WAITING=-100;
-	private static int DONE = -1;
-	private static int YES = 1;
-	private static int NO = 0;
+	public int WAITING=-100;
+	public int DONE = -1;
+	public int YES = 1;
+	public int NO = 0;
 	
 	//Rects for remembering window Positioning
 	Rect cullCheckRect;
@@ -40,12 +40,10 @@ public class GUIChoiceWindows : MonoBehaviour {
 	bool yesNoResult;
 	
 	//holds the current list of dice shown on the GUI
-	List<Die> displayedDie;
+	public List<Die> displayedDie;
 	
 	Vector2 scrollViewVector;
-	
-	// Use this for initialization
-	void Start () {
+	public GUIChoiceWindows() {
 		isDefenceWindow = false;
 		isBuyWindow = false;
 		isSummonWindow = false;
@@ -61,6 +59,24 @@ public class GUIChoiceWindows : MonoBehaviour {
 		scrollViewVector = Vector2.zero;
 		SetUpTagDictionary();
 	}
+	// Use this for initialization
+	void Start () {
+//		choiceNumber = WAITING;
+//		isDefenceWindow = false;
+//		isBuyWindow = false;
+//		isSummonWindow = false;
+//		isCullCheckWindow = false;
+//		isCullWindow = false;
+//		isResolveWindow = false;
+//		cullCheckRect = ScreenCenterRect(300,150);
+//		resolveRect = ScreenCenterRect(500,400);
+//		cullRect = ScreenCenterRect(500,400);
+//		summonRect = ScreenCenterRect(500,400);
+//		defenceRect = ScreenCenterRect(500,400);
+//		buyRect = ScreenCenterRect(500,400);
+//		scrollViewVector = Vector2.zero;
+//		SetUpTagDictionary();
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -68,7 +84,8 @@ public class GUIChoiceWindows : MonoBehaviour {
 	}
 	
 	//Main GUI Function...If window's bool is active then appears 
-	void OnGUI(){
+	public void OnGUI(){
+		//choiceNumber = WAITING;
 		if(isCullCheckWindow)	cullCheckRect = GUI.Window(0,cullCheckRect,DrawYesNoWindow,"Would you like to Cull a Die?");
 		if(isResolveWindow) resolveRect = GUI.Window(1,resolveRect,DiceChoiceWindow, "Choose a dice to resolve...");
 		if(isCullWindow) cullRect = GUI.Window(1,cullRect,DiceChoiceWindow, "Choose a dice to cull...");
@@ -99,6 +116,7 @@ public class GUIChoiceWindows : MonoBehaviour {
 	
 	//Window function to create the inside of the Dice Choice windows. Similar across all windows
 	void DiceChoiceWindow(int windowID){
+		choiceNumber = WAITING;
 		int diceCount = displayedDie.Count;
 		if(windowID == 1){
 			scrollViewVector=GUI.BeginScrollView(new Rect(20,20,400,250),scrollViewVector,new Rect(0,0,300,(diceCount*40)));
@@ -185,6 +203,7 @@ public class GUIChoiceWindows : MonoBehaviour {
 		else if(choiceNumber >=0){
 			isResolveWindow = false;
 			hasChosen = true;
+			Debug.Log (displayedDie[choiceNumber].tag);
 			return displayedDie[choiceNumber];
 		}
 		else{
@@ -195,13 +214,17 @@ public class GUIChoiceWindows : MonoBehaviour {
 	
 	
 	
-	public bool showCullCheck(){
+	public void showCullCheck(){
 		if(!isCullCheckWindow){
 			isCullCheckWindow= true;
 			choiceNumber = WAITING;
 			hasChosen = false;
 		}
+	}
+	
+	public bool getCullChoice(){
 		if(choiceNumber == DONE){
+			Debug.Log ("Done");
 			isCullCheckWindow = false;
 			hasChosen = true;
 			return yesNoResult;
@@ -209,7 +232,6 @@ public class GUIChoiceWindows : MonoBehaviour {
 		else{
 			return false;
 		}
-		
 	}
 	
 	public Die showCullWindow(List<Die> dieToDisplay){

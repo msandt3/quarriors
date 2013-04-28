@@ -55,7 +55,6 @@ public class CardAreaController : MonoBehaviour{
 		for(int i=0; i<3; i++){
 			Transform card;
 			card = Instantiate(spells[i]) as Transform;
-			Debug.Log (card.name);
 			addCard(card);
 			card.position = new Vector3(xStart + (10 * numCards), 0 , 0);
 			card.parent = CardArea.transform;

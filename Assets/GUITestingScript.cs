@@ -71,7 +71,7 @@ public class GUITestingScript : MonoBehaviour {
 	}
 	
 	public void CullCheckWindowTest(){
-		bool confirmCull = gui.showCullCheck();
+		bool confirmCull = gui.getCullChoice();
 		//gui.hasChosen changes to true once a person has performed an choice action with the window
 		if(gui.hasChosen){
 			//In the case of a Yes/No window true is Yes
