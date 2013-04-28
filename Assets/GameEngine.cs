@@ -138,8 +138,9 @@ public class GameEngine : MonoBehaviour {
 	
 	IEnumerator SummonCreature(){
 		//prompt player to summon particular creatures
-		
+		string tag = "A";
 		//create a string of the creature you want to summon
+		GameState.p1.SummonCreature(tag);
 		yield return null;
 	}
 	
@@ -191,8 +192,14 @@ public class GameEngine : MonoBehaviour {
 	
 	IEnumerator PurchaseDie(){
 		//prompt player to purchase die
-		Die newDie = GameState.BuyDie("BQ");
-		GameState.p1.AddBoughtDie(newDie);
+		string tag = "A";
+		int cost = GameState.p1.cardCosts[tag];
+		//check if the player has enough quid to buy said die
+		if(GameState.p1.ActiveQuid >= cost){
+			Die newDie = GameState.BuyDie(tag);
+			GameState.p1.RemoveQuiddity(cost);
+			GameState.p1.AddBoughtDie(newDie);
+		}
 		GameState.p1.UpdateQuiddity();
 		yield return null;
 	}
