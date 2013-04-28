@@ -4,8 +4,9 @@ using System.Collections.Generic;
 
 public class GUIChoiceWindows : MonoBehaviour {
 	
-	Player p;
+	//Player p;
 	
+	//Window Showing booleans
 	bool isDefenceWindow;
 	bool isBuyWindow;
 	bool isSummonWindow;
@@ -16,12 +17,13 @@ public class GUIChoiceWindows : MonoBehaviour {
 	//this is the waiting variable
 	public int choiceNumber;
 	
-	//Functions will return DONE_CHOICE if DONE_CHOICE is selected
+	//static variables used in determining state of window
 	private static int WAITING=-100;
 	private static int DONE = -1;
 	private static int YES = 1;
 	private static int NO = 0;
 	
+	//Rects for remembering window Positioning
 	Rect cullCheckRect;
 	Rect buyWindowRect;
 	Rect resolveRect;
@@ -30,11 +32,14 @@ public class GUIChoiceWindows : MonoBehaviour {
 	Rect defenceRect;
 	Rect buyRect;
 	
+	//IMPORTANT BOOLEAN: used to see if someone has made a choice....to be used in GameEngine
+	//(see GUITestingScript for example on use);
 	public bool hasChosen;
 	private Dictionary<string,string> diceNameTable;
 	
 	bool yesNoResult;
 	
+	//holds the current list of dice shown on the GUI
 	List<Die> displayedDie;
 	
 	Vector2 scrollViewVector;
@@ -59,15 +64,10 @@ public class GUIChoiceWindows : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//		if(Input.GetKeyDown(KeyCode.P)){
-//			isCullCheckWindow=!isCullCheckWindow;
-//		}
-//		if(Input.GetKeyDown(KeyCode.B)){
-//			isResolveWindow=!isResolveWindow;			
-//		}
-		
+
 	}
 	
+	//Main GUI Function...If window's bool is active then appears 
 	void OnGUI(){
 		if(isCullCheckWindow)	cullCheckRect = GUI.Window(0,cullCheckRect,DrawYesNoWindow,"Would you like to Cull a Die?");
 		if(isResolveWindow) resolveRect = GUI.Window(1,resolveRect,DiceChoiceWindow, "Choose a dice to resolve...");
@@ -77,7 +77,10 @@ public class GUIChoiceWindows : MonoBehaviour {
 		if(isBuyWindow) buyRect = GUI.Window(1,buyRect,DiceChoiceWindow, "Choose a die from the wilds to buy...");
 		
 	}
-		
+	
+	
+	//Window function to create the inside of the Yes/No Windows. More window labels will have be added for different
+	//Yes/No Buttons
 	void DrawYesNoWindow(int windowID){
 		if(windowID == 0){
 			GUI.Label(new Rect(110,30,80,30),"Die To Cull: ");
@@ -94,6 +97,7 @@ public class GUIChoiceWindows : MonoBehaviour {
 		GUI.DragWindow (new Rect (0,0, 10000, 20));	
 	}
 	
+	//Window function to create the inside of the Dice Choice windows. Similar across all windows
 	void DiceChoiceWindow(int windowID){
 		int diceCount = displayedDie.Count;
 		if(windowID == 1){
@@ -119,12 +123,12 @@ public class GUIChoiceWindows : MonoBehaviour {
 				
 			
 	
-			
+	//Centers a window to the screen		
 	Rect ScreenCenterRect(int width, int height){
 				return new Rect((Screen.width/2)-(width/2),(Screen.height/2)-(height/2),width,height);
 	}
 	
-	
+	//building tag to card name library for GUI purposes
 	void SetUpTagDictionary(){
 		diceNameTable = new Dictionary<string, string>();
 		diceNameTable.Add("BQ","Basic Quiddity");
@@ -153,8 +157,14 @@ public class GUIChoiceWindows : MonoBehaviour {
 	//The following are the actual functions to be used in the GameEngine class, each will generate an interface 
 	// and return a value
 	
-	//Dice windows return null if waiting, GUIChoiceWindows.DONE_CHOICE if done button, and appropriate Die if Die was selected.
+	//There are two kinds of windows, Yes/No Windows for simple prompts and Dice Show Windows for dice selection.
 	
+	//All Dice window functions return a Die and follow the same call format:  showXWindow(List<Die> dieToDisplay)
+	
+	//All Yes/No window functions return a bool and follow the same call format: showXWindow();
+	
+	
+	//see GUITestingScript Class for examples on how to use
 	
 	public Die showResolveWindow(List<Die> dieToDisplay){
 		displayedDie = dieToDisplay;
