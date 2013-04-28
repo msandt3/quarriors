@@ -11,11 +11,15 @@ public class Player{
 	public List<Die> ReadyArea;
 	public List<Die> SpentPile;
 	public List<Die> UsedPile;
-	public List<Side> SummonedCreatures;
+	public List<Die> SummonedCreatures;
 	public bool HasCreatures;
 	public List<string> tags;
 	public Dictionary<string,int> cardCosts;
 	public string[] cards = { "BQ", "A", "P", "WH", "SG", "GS", "DHQ", "PO","WQ","QD","DD","QW","DP","S","G","D","V","L"};
+	
+	//need to enumerate the available actions somehow
+	
+	
 	
 	
 	
@@ -31,6 +35,7 @@ public class Player{
 		ReadyArea = new List<Die>();
 		SpentPile = new List<Die>();
 		UsedPile = new List<Die>();
+		SummonedCreatures = new List<Die>();
 		for (int i = 0; i < 8; i++) {
 			Bag.Add (new Die("BQ"));
 		}
@@ -90,6 +95,11 @@ public class Player{
 	void ActivetoReady(int index) {
 		ReadyArea.Add (ActivePool[index]);
 		ActivePool.RemoveAt(index);
+	}
+	
+	void ActiveToReady(Die d){
+		ReadyArea.Add (d);
+		ActivePool.Remove(d);
 	}
 	
 	void ActivetoUsed(int index) {
@@ -266,5 +276,61 @@ public class Player{
 		}
 		
 		return (float)totaldef/(float)totaldice;
+	}
+
+	public void SummonCreature(string tag){
+		//get the die we want to summon
+		Die tosummon = null;
+		foreach(Die d in ActivePool){
+			if(d.tag == tag){
+				tosummon = d;
+			}
+		}
+		
+		int cost = tosummon.ActiveSide.creatureCost;
+		
+		if(ActiveQuid >= cost){
+			ActiveToReady(tosummon);
+			RemoveQuiddity(cost);
+		}
+	}
+	
+	public void RemoveQuiddity(int amt){
+		
+		while(amt > 0){
+			Die quid = null;
+			
+			
+			if(amt == 1){
+				foreach(Die d in ActivePool){
+					if(d.ActiveSide.quiddity == 1){
+						quid = null;
+						break;
+					}
+				}
+			}
+			if(amt == 2){
+				foreach(Die d in ActivePool){
+					if(d.ActiveSide.quiddity == 2){
+						quid = null;
+						break;
+					}
+				}
+			}
+			else{
+				foreach(Die d in ActivePool){
+					if(d.ActiveSide.quiddity > 0){
+						quid = null;
+						break;
+					}
+				}
+			}
+			
+			amt = amt - quid.ActiveSide.quiddity;
+			ActivePool.Remove(quid);
+			SpentPile.Add(quid);
+			
+		}
+			
 	}
 }

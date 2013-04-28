@@ -138,6 +138,8 @@ public class GameEngine : MonoBehaviour {
 	
 	IEnumerator SummonCreature(){
 		//prompt player to summon particular creatures
+		
+		//create a string of the creature you want to summon
 		yield return null;
 	}
 	
