@@ -78,18 +78,7 @@ public class Die {
 			createL ();
 			break;
 		}
-//		s1 = new Side();
-//		s2 = new Side();
-//		s3 = new Side();
-//		s4 = new Side();
-//		s5 = new Side();
-//		s6 = new Side();
-//		SideList.Add (s1);
-//		SideList.Add (s2);
-//		SideList.Add (s3);
-//		SideList.Add (s4);
-//		SideList.Add (s5);
-//		SideList.Add (s6);
+
 		this.ActiveSide = SideList[0];
 		this.Spent = false;
 	}
@@ -100,6 +89,7 @@ public class Die {
 		return SideList[rand];
 	}
 	
+		
 	void createBQ() {
 		SideList.Add (new Side(1,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(1,0,0,0,0,0,0,-1,this));

@@ -157,6 +157,7 @@ public class Player{
 		foreach(Die d in ReadyArea){
 			ret += d.ActiveSide.power;
 		}
+		return ret;
 	}
 
 	public int NumCreaturesReady(){
