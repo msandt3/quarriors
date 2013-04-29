@@ -92,9 +92,13 @@ public class Player{
 		ActivePool.RemoveAt(index);
 	}
 	
-	void ActivetoUsed(int index) {
+	public void ActivetoUsed(int index) {
 		UsedPile.Add(ActivePool[index]);
 		ActivePool.RemoveAt (index);
+	}
+	
+	public void AcitvetoUsed(Die d) {
+		
 	}
 	
 	void ReadytoUsed(int index) {
@@ -103,10 +107,26 @@ public class Player{
 	}
 	
 	public void AllActiveToUsed(){
-		foreach(Die d in ActivePool){
-			UsedPile.Add(d);
-			ActivePool.Remove(d);
+		if (ActivePool.Count != 0) {
+//			for (int i = 0; i < ActivePool.Count; i++) {
+//				UsedPile.Add(ActivePool[0]);
+//				ActivePool.RemoveAt (0);
+//			}
+			foreach(Die d in ActivePool){
+				UsedPile.Add(d);
+				ActivePool.Remove(d);
+			}
 		}
+	}
+	
+	public int findDie(List<Die> list, Die d) {
+		int index = -1;
+		for (int i = 0; i < list.Count; i++) {
+			if(list[i] == d) {
+				index = i;
+			}
+		}
+		return index;
 	}
 	
 	void AddDie() {

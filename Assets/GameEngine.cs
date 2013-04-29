@@ -44,7 +44,9 @@ public class GameEngine : MonoBehaviour {
 		if (!GameState.isWin ()) {
 			switch(state) {
 			case 0:
+				//GameState.p1.AllActiveToUsed ();
 				// Scores creatures and pops up the CullCheck window.
+				GameState.p1.ActiveQuid = 0;
 				numCreaturesScored = 0;
 				Debug.Log("State 0");
 				numCreaturesScored = ScoreCreatures (GameState.p1);
@@ -79,10 +81,10 @@ public class GameEngine : MonoBehaviour {
 						state = 4;
 					}
 					else {
-						GameState.p1.CullDie (d);
-						GameState.CullDie (d);
-						numCreaturesScored--;
 						if (numCreaturesScored > 0) {
+							GameState.p1.CullDie (d);
+							GameState.CullDie (d);
+							numCreaturesScored--;
 							state = 2;
 						}
 						else {
@@ -92,14 +94,126 @@ public class GameEngine : MonoBehaviour {
 				}
 				break;
 			case 4:
+				// Draw and Roll
+				gcw.isCullWindow = false;
 				Debug.Log("State 4");
-				state = 0;
+				GameState.p1.DrawAndRoll();
+				gcw.showResolveWindow (GameState.p1.ActivePool);
+				state = 5;
 				break;
 			case 5:
+				// Activate Immediate Effects
+				Debug.Log ("State 5");
+				Die d1 = gcw.showResolveWindow (GameState.p1.ActivePool);
+				if (gcw.hasChosen) {
+					if (d1 == null) {
+						state = 6;
+					}
+					else {
+						if (d1.ActiveSide.quiddity == 0 && d1.ActiveSide.glory == 0) {
+							resolveDie (d1);
+						}
+					}
+				}
 				break;
 			case 6:
+				// Ready Spells and Summon Creatures
+				Debug.Log ("state 6");
+				RemoveSpells ();
+				state = 7;
+				break;			
+			case 7:
+				// Shows creature window
+				Debug.Log ("state 7");
+				gcw.showCreatureWindow(GameState.p1.ActivePool);
+				GameState.p1.UpdateQuiddity();
+				Debug.Log ("Active QUiddity: " + GameState.p1.ActiveQuid);
+				state = 8;
+				break;
+			case 8:
+				// Handles Creature window
+				Debug.Log ("state 8");
+				Die d2 = gcw.showCreatureWindow (GameState.p1.ActivePool);
+				if (gcw.hasChosen) {
+					if (d2 == null) {
+						state = 9;
+					}
+					else {
+						Debug.Log ("Before purchase: " + GameState.p1.ActiveQuid);
+						if (d2.ActiveSide.glory > 0) {
+							Debug.Log("in");
+							Debug.Log("Creature Cost: " + d2.ActiveSide.creatureCost);
+							if (d2.ActiveSide.creatureCost <= GameState.p1.ActiveQuid) {
+								GameState.p1.ActiveQuid -= d2.ActiveSide.creatureCost;
+								GameState.p1.ActivePool.Remove (d2);
+								GameState.p1.ReadyArea.Add (d2);
+								Debug.Log ("After purchase: " + GameState.p1.ActiveQuid);
+								state = 7;
+							}
+						}
+					}
+				}
+				break;
+			case 9:
+				// Displays attack window
+				Debug.Log ("state 9");
+				gcw.showAttackWindow (GameState.p1.ReadyArea);
+				state = 10;
+				break;
+			case 10:
+				Debug.Log ("state 10");
+				Die d3 = gcw.showAttackWindow (GameState.p1.ReadyArea);
+				if(gcw.hasChosen) {
+					if (d3 == null) {
+						state = 11;
+					}
+					else {
+						state = 9;
+					}
+				}
+				break;
+			case 11:
+				Debug.Log ("state 11");
+				// Displays defense window
+				gcw.showCPUDefenseWindow(GameState.p2.ReadyArea);
+				state = 12;
+				break;
+			case 12:
+				//Handles defense window
+				Debug.Log ("state 12");
+				Die d4 = gcw.showCPUDefenseWindow (GameState.p2.ReadyArea);
+				if(gcw.hasChosen) {
+					if (d4 == null) {
+						state = 13;
+					}
+					else {
+						state = 11;
+					}
+				}
+				break;
+			case 13:
+				// Needs to be fixed
+				Debug.Log ("state 13");
+				gcw.showBuyWindow (GameState.p1.ActivePool);
+				state = 14;
+				break;
+			case 14:
+				Die d5 = gcw.showBuyWindow (GameState.p1.ActivePool);
+				if(gcw.hasChosen) {
+					if(d5 == null) {
+						state = 15;
+					}
+					else {
+						state = 15;
+					}
+				}
+				break;
+			case 15:
+				GameState.p1.AllActiveToUsed ();
+				state = 0;
 				break;
 			}
+			
 		}
 	}
 	
@@ -109,13 +223,33 @@ public class GameEngine : MonoBehaviour {
 //			
 //		}
 //	}
-	
+	public void RemoveSpells(){
+		//move them from active to ready
+		foreach(Die d in GameState.p1.ActivePool){
+			//if dies active side is a spell && not immediate
+			if(d.ActiveSide.spelltype != 1 && d.ActiveSide.spelltype != 0){
+				GameState.p1.ActivePool.Remove(d);
+				GameState.p1.ReadyArea.Add(d);
+			}
+		}
+	}
 	public int ScoreCreatures(Player play) {
-		return 0;
+		int i = 0;
+		foreach(Die d in GameState.p1.ReadyArea) {
+			if (d.ActiveSide.glory > 0) {
+				GameState.p1.Glory += d.ActiveSide.glory;
+				i++;
+				GameState.p1.ReadyArea.Remove (d);
+				GameState.p1.UsedPile.Add (d);
+			}
+		}
+		return i;
 	}
 	
-	void cull(Player play, int numDie) {
-		
+	void resolveDie(Die d) {
+		Debug.Log("resolving");
+		GameState.p1.ActivePool.Remove (d);
+		GameState.p1.UsedPile.Add (d);
 	}
 	
 	

@@ -13,6 +13,9 @@ public class GUIChoiceWindows : MonoBehaviour{
 	public bool isCullCheckWindow;
 	public bool isResolveWindow;
 	public bool isCullWindow;
+	public bool isCreatureWindow;
+	public bool isAttackWindow;
+	public bool isCPUDefenseWindow;
 	
 	//this is the waiting variable
 	public int choiceNumber;
@@ -31,6 +34,9 @@ public class GUIChoiceWindows : MonoBehaviour{
 	Rect summonRect;
 	Rect defenceRect;
 	Rect buyRect;
+	Rect creatureRect;
+	Rect attackRect;
+	Rect cpuDefenseRect;
 	
 	//IMPORTANT BOOLEAN: used to see if someone has made a choice....to be used in GameEngine
 	//(see GUITestingScript for example on use);
@@ -50,12 +56,18 @@ public class GUIChoiceWindows : MonoBehaviour{
 		isCullCheckWindow = false;
 		isCullWindow = false;
 		isResolveWindow = false;
+		isCreatureWindow = false;
+		isAttackWindow = false;
+		isCPUDefenseWindow = false;
 		cullCheckRect = ScreenCenterRect(300,150);
 		resolveRect = ScreenCenterRect(500,400);
 		cullRect = ScreenCenterRect(500,400);
 		summonRect = ScreenCenterRect(500,400);
 		defenceRect = ScreenCenterRect(500,400);
 		buyRect = ScreenCenterRect(500,400);
+		creatureRect = ScreenCenterRect (500,400);
+		attackRect = ScreenCenterRect (500,400);
+		cpuDefenseRect = ScreenCenterRect (500,400);
 		scrollViewVector = Vector2.zero;
 		SetUpTagDictionary();
 	}
@@ -88,11 +100,13 @@ public class GUIChoiceWindows : MonoBehaviour{
 		//choiceNumber = WAITING;
 		if(isCullCheckWindow)	cullCheckRect = GUI.Window(0,cullCheckRect,DrawYesNoWindow,"Would you like to Cull a Die?");
 		if(isResolveWindow) resolveRect = GUI.Window(1,resolveRect,DiceChoiceWindow, "Choose a dice to resolve...");
+		if(isCreatureWindow) creatureRect = GUI.Window (1, creatureRect,DiceChoiceWindow, "Choose creatures to summon...");
 		if(isCullWindow) cullRect = GUI.Window(1,cullRect,DiceChoiceWindow, "Choose a dice to cull...");
 		if(isSummonWindow) summonRect = GUI.Window(1,summonRect,DiceChoiceWindow, "Choose a creature to Summon...");
 		if(isDefenceWindow) defenceRect = GUI.Window(1,defenceRect,DiceChoiceWindow, "Choose a creature to Defend with...");
 		if(isBuyWindow) buyRect = GUI.Window(1,buyRect,DiceChoiceWindow, "Choose a die from the wilds to buy...");
-		
+		if(isAttackWindow) attackRect = GUI.Window(1,attackRect,DiceChoiceWindow,"Attacking with these creatures...");
+		if(isCPUDefenseWindow) cpuDefenseRect = GUI.Window (1,cpuDefenseRect,DiceChoiceWindow,"CPU is defending in this order...");
 	}
 	
 	
@@ -212,7 +226,89 @@ public class GUIChoiceWindows : MonoBehaviour{
 		
 	}
 	
+	public Die showCPUDefenseWindow(List<Die> dieToDisplay){
+		displayedDie = dieToDisplay;
+		if(!isCPUDefenseWindow){
+			scrollViewVector = Vector2.zero;
+			isCPUDefenseWindow = true;
+			hasChosen = false;
+			choiceNumber = WAITING;
+		}
+		if(choiceNumber == WAITING){
+			return null;
+		}
+		else if(choiceNumber==DONE){
+			isCPUDefenseWindow = false;
+			hasChosen = true;
+			return null;
+		}
+		else if(choiceNumber >=0){
+			isCPUDefenseWindow = false;
+			hasChosen = true;
+			Debug.Log (displayedDie[choiceNumber].tag);
+			return displayedDie[choiceNumber];
+		}
+		else{
+			return null;
+		}
+		
+	}
 	
+	public Die showCreatureWindow(List<Die> dieToDisplay){
+		displayedDie = dieToDisplay;
+		if(!isCreatureWindow){
+			scrollViewVector = Vector2.zero;
+			isCreatureWindow = true;
+			hasChosen = false;
+			choiceNumber = WAITING;
+		}
+		if(choiceNumber == WAITING){
+			return null;
+		}
+		else if(choiceNumber==DONE){
+			isCreatureWindow = false;
+			hasChosen = true;
+			return null;
+		}
+		else if(choiceNumber >=0){
+			isCreatureWindow = false;
+			hasChosen = true;
+			Debug.Log (displayedDie[choiceNumber].tag);
+			return displayedDie[choiceNumber];
+		}
+		else{
+			return null;
+		}
+		
+	}
+	
+	public Die showAttackWindow(List<Die> dieToDisplay){
+		displayedDie = dieToDisplay;
+		if(!isAttackWindow){
+			scrollViewVector = Vector2.zero;
+			isAttackWindow = true;
+			hasChosen = false;
+			choiceNumber = WAITING;
+		}
+		if(choiceNumber == WAITING){
+			return null;
+		}
+		else if(choiceNumber==DONE){
+			isAttackWindow = false;
+			hasChosen = true;
+			return null;
+		}
+		else if(choiceNumber >=0){
+			isAttackWindow = false;
+			hasChosen = true;
+			Debug.Log (displayedDie[choiceNumber].tag);
+			return displayedDie[choiceNumber];
+		}
+		else{
+			return null;
+		}
+		
+	}
 	
 	public void showCullCheck(){
 		if(!isCullCheckWindow){
