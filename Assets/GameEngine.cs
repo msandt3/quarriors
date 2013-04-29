@@ -210,6 +210,7 @@ public class GameEngine : MonoBehaviour {
 	}
 	
 	IEnumerator ComputerTurn(){
+		yield return null;
 	}
 	
 }

@@ -167,6 +167,7 @@ public class Player{
 		foreach(Die d in ReadyArea){
 			ret += d.ActiveSide.power;
 		}
+		return ret;
 	}
 
 	public int NumCreaturesReady(){
@@ -228,7 +229,7 @@ public class Player{
 		totaldice += Bag.Count;
 		//dice in the bag
 		foreach(Die d in Bag){
-			totalattack += d.GetMaxAtttack();
+			totalattack += d.GetMaxAttack();
 		}
 		totaldice += ActivePool.Count;
 		foreach(Die d in ActivePool){
