@@ -16,6 +16,13 @@ public class GUIChoiceWindows : MonoBehaviour{
 	public bool isCreatureWindow;
 	public bool isAttackWindow;
 	public bool isCPUDefenseWindow;
+	public bool isDiceWTextWindow;
+	public bool isShowDiceWindow;
+	public bool isOKWindow;
+	public bool isPoolWindow;
+	
+	
+	public GUIStyle style;
 	
 	//this is the waiting variable
 	public int choiceNumber;
@@ -37,6 +44,10 @@ public class GUIChoiceWindows : MonoBehaviour{
 	Rect creatureRect;
 	Rect attackRect;
 	Rect cpuDefenseRect;
+	Rect diceWTextWindowRect;
+	Rect diceWindowRect;
+	Rect okWindowRect;
+	Rect poolWindowsRect;
 	
 	//IMPORTANT BOOLEAN: used to see if someone has made a choice....to be used in GameEngine
 	//(see GUITestingScript for example on use);
@@ -44,6 +55,9 @@ public class GUIChoiceWindows : MonoBehaviour{
 	private Dictionary<string,string> diceNameTable;
 	
 	bool yesNoResult;
+	
+	string extraText;
+	string title;
 	
 	//holds the current list of dice shown on the GUI
 	public List<Die> displayedDie;
@@ -59,6 +73,9 @@ public class GUIChoiceWindows : MonoBehaviour{
 		isCreatureWindow = false;
 		isAttackWindow = false;
 		isCPUDefenseWindow = false;
+		isDiceWTextWindow = false;
+		isShowDiceWindow = false;
+		isOKWindow = false;
 		cullCheckRect = ScreenCenterRect(300,150);
 		resolveRect = ScreenCenterRect(500,400);
 		cullRect = ScreenCenterRect(500,400);
@@ -68,8 +85,16 @@ public class GUIChoiceWindows : MonoBehaviour{
 		creatureRect = ScreenCenterRect (500,400);
 		attackRect = ScreenCenterRect (500,400);
 		cpuDefenseRect = ScreenCenterRect (500,400);
+		diceWTextWindowRect = ScreenCenterRect(500,400);
+		diceWindowRect = ScreenCenterRect(500,400);
+		okWindowRect = ScreenCenterRect(300,200);
+		poolWindowsRect = new Rect(0,0,400,700);
 		scrollViewVector = Vector2.zero;
 		SetUpTagDictionary();
+		extraText = "";
+		title = "";
+		style = new GUIStyle();
+		
 	}
 	// Use this for initialization
 	void Start () {
@@ -98,6 +123,7 @@ public class GUIChoiceWindows : MonoBehaviour{
 	//Main GUI Function...If window's bool is active then appears 
 	public void OnGUI(){
 		//choiceNumber = WAITING;
+		style.wordWrap = true;
 		if(isCullCheckWindow)	cullCheckRect = GUI.Window(0,cullCheckRect,DrawYesNoWindow,"Would you like to Cull a Die?");
 		if(isResolveWindow) resolveRect = GUI.Window(1,resolveRect,DiceChoiceWindow, "Choose a dice to resolve...");
 		if(isCreatureWindow) creatureRect = GUI.Window (1, creatureRect,DiceChoiceWindow, "Choose creatures to summon...");
@@ -107,6 +133,10 @@ public class GUIChoiceWindows : MonoBehaviour{
 		if(isBuyWindow) buyRect = GUI.Window(1,buyRect,DiceChoiceWindow, "Choose a die from the wilds to buy...");
 		if(isAttackWindow) attackRect = GUI.Window(1,attackRect,DiceChoiceWindow,"Attacking with these creatures...");
 		if(isCPUDefenseWindow) cpuDefenseRect = GUI.Window (1,cpuDefenseRect,DiceChoiceWindow,"CPU is defending in this order...");
+		if(isDiceWTextWindow) diceWTextWindowRect = GUI.Window(2,diceWTextWindowRect, DiceShowWindow, title);
+		if(isShowDiceWindow) diceWindowRect = GUI.Window(1,diceWindowRect, DiceShowWindow, title);
+		if(isOKWindow) okWindowRect = GUI.Window(1,okWindowRect, OKWindow, title);
+		if(isPoolWindow) poolWindowsRect = GUI.Window(3,poolWindowsRect,DiceShowWindow,title);
 	}
 	
 	
@@ -127,6 +157,9 @@ public class GUIChoiceWindows : MonoBehaviour{
 		}	
 		GUI.DragWindow (new Rect (0,0, 10000, 20));	
 	}
+	
+	
+	
 	
 	//Window function to create the inside of the Dice Choice windows. Similar across all windows
 	void DiceChoiceWindow(int windowID){
@@ -152,6 +185,71 @@ public class GUIChoiceWindows : MonoBehaviour{
 			
 		GUI.DragWindow (new Rect (0,0, 10000, 20));	
 	}
+	
+	void DiceShowWindow(int windowID){
+		int diceCount = displayedDie.Count;
+		if(windowID == 1){
+			scrollViewVector=GUI.BeginScrollView(new Rect(20,20,400,250),scrollViewVector,new Rect(0,0,300,(diceCount*40)));
+			for(int i=0; i<diceCount; i++){
+				int curSide = displayedDie[i].SideList.IndexOf(displayedDie[i].ActiveSide);
+				GUI.Box(new Rect(0,(i*40),300,30),diceNameTable[displayedDie[i].tag] +": Side "+curSide);				
+			}
+
+
+			GUI.EndScrollView();
+			if(GUI.Button(new Rect(20,280,50,30),"Done")){
+				choiceNumber = DONE;
+			}
+			GUI.DragWindow (new Rect (0,0, 10000, 20));	
+		}
+		// This is with a string at the top of the view...string will be global and passed in through functions below
+		if(windowID == 2){
+			GUI.Label(new Rect(20,20,400,30), extraText);
+			scrollViewVector=GUI.BeginScrollView(new Rect(20,50,400,250),scrollViewVector,new Rect(0,0,300,(diceCount*40)));
+			for(int i=0; i<diceCount; i++){
+				int curSide = displayedDie[i].SideList.IndexOf(displayedDie[i].ActiveSide);
+				GUI.Box(new Rect(0,(i*40),300,30),diceNameTable[displayedDie[i].tag] +": Side "+curSide);				
+			}
+
+
+			GUI.EndScrollView();
+			if(GUI.Button(new Rect(20,300,50,30),"Done")){
+				choiceNumber = DONE;
+			}
+			GUI.DragWindow (new Rect (0,0, 10000, 20));	
+		}
+		if(windowID == 3){
+			scrollViewVector=GUI.BeginScrollView(new Rect(20,20,360,660),scrollViewVector,new Rect(0,0,340,(diceCount*40)));
+			for(int i=0; i<diceCount; i++){
+				int curSide = displayedDie[i].SideList.IndexOf(displayedDie[i].ActiveSide);
+				GUI.Box(new Rect(0,(i*40),360,30),diceNameTable[displayedDie[i].tag] +": Side "+curSide);				
+			}
+
+
+			GUI.EndScrollView();
+		}
+
+
+
+
+
+
+	}
+	
+	public void OKWindow(int windowID){
+		if(windowID == 1){
+			GUI.Label(new Rect(20,20,260,140), extraText);
+			if(GUI.Button(new Rect(20,160,50,30),"OK")){
+				choiceNumber = DONE;
+			}
+			
+		}
+		
+		GUI.DragWindow (new Rect (0,0, 10000, 20));	
+		
+	}
+			
+			
 				
 			
 	
@@ -436,6 +534,78 @@ public class GUIChoiceWindows : MonoBehaviour{
 			return null;
 		}
 		
+	}
+	
+	//This function shows Dice with no interactivity...besides done button
+	public void showDiceViewWindow(List<Die> dieToDisplay,string titleText){
+		this.title =titleText;
+		displayedDie = dieToDisplay;
+		if(!isShowDiceWindow){
+			scrollViewVector = Vector2.zero;
+			isShowDiceWindow = true;
+			hasChosen = false;
+			choiceNumber = WAITING;
+		}
+		if(choiceNumber==DONE){
+			isShowDiceWindow = false;
+			hasChosen = true;
+		}
+
+	}
+	
+	//This function shows Dice with no interactivity...besides done button
+	public void showDiceViewWithTextWindow(List<Die> dieToDisplay, string titleText, string extraText){
+		this.extraText = extraText;
+		this.title = titleText;
+		displayedDie = dieToDisplay;
+		if(!isDiceWTextWindow){
+			scrollViewVector = Vector2.zero;
+			isDiceWTextWindow = true;
+			hasChosen = false;
+			choiceNumber = WAITING;
+		}
+		if(choiceNumber==DONE){
+			isDiceWTextWindow = false;
+			hasChosen = true;
+		}
+
+	}
+	
+	
+	public void showOKWindow(string titleText, string extraText){
+		this.extraText = extraText;
+		this.title = titleText;
+		if(!isOKWindow){
+			scrollViewVector = Vector2.zero;
+			isOKWindow = true;
+			hasChosen = false;
+			choiceNumber = WAITING;
+		}
+		if(choiceNumber==DONE){
+			isOKWindow = false;
+			hasChosen = true;
+		}
+
+	}
+	
+	public void showPoolWindow(bool enable, List<Die> diceToDisplay, string titleText){
+		this.title=titleText;
+		this.displayedDie = diceToDisplay;
+		if(enable){
+			isPoolWindow = true;
+		}
+		else{
+			isPoolWindow = false;
+		}
+	}
+	
+	public void showPoolWindow(bool enable){
+		if(enable){
+			isPoolWindow = true;
+		}
+		else{
+			isPoolWindow = false;
+		}
 	}
 		
 		

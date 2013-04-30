@@ -13,6 +13,7 @@ public class Die {
 	public string tag;
 	public List<Side> SideList;
 	public bool Spent { get; set; }
+	public int cost;
 	
 	private string[] spelltags = {"S","G","D","V","L"};
 	
@@ -83,6 +84,15 @@ public class Die {
 		this.Spent = false;
 	}
 	
+	public float averageQuid1() {
+		float aQ = 0;
+		for (int i = 0; i < SideList.Count; i++) {
+			aQ += (float) SideList[i].quiddity;
+		}
+		aQ = (aQ/SideList.Count);
+		return aQ;
+	}
+	
 	public Side roll() {
 		int rand = Random.Range (0,6);
 		ActiveSide = SideList[rand];
@@ -91,6 +101,7 @@ public class Die {
 	
 		
 	void createBQ() {
+		this.cost = 0;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
@@ -100,6 +111,7 @@ public class Die {
 	}
 	
 	void createA() {
+		this.cost = 1;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
@@ -109,6 +121,7 @@ public class Die {
 	}
 	
 	void createP() {
+		this.cost = 4;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(0,0,0,0,0,0,0,0,1,this));
 		SideList.Add (new Side(0,0,0,0,0,0,0,0,1,this));
@@ -118,6 +131,7 @@ public class Die {
 	}
 	
 	void createWH() {
+		this.cost = 5;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
@@ -127,6 +141,7 @@ public class Die {
 	}
 	
 	void createSG() {
+		this.cost = 2;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(0,0,1,2,2,2,0,0,3,this));
@@ -136,6 +151,7 @@ public class Die {
 	}
 	
 	void createGS() {
+		this.cost = 3;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
@@ -145,6 +161,7 @@ public class Die {
 	}
 	
 	void createDHQ() {
+		this.cost = 3;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(0,0,1,0,3,2,0,0,-1,this));
@@ -154,6 +171,7 @@ public class Die {
 	}
 	
 	void createPO() {
+		this.cost = 8;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
@@ -163,6 +181,7 @@ public class Die {
 	}
 	
 	void createWQ() {
+		this.cost = 4;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
@@ -172,6 +191,7 @@ public class Die {
 	}
 	
 	void createQD() {
+		this.cost = 8;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(0,0,0,0,0,0,0,0,17,this));
@@ -181,6 +201,7 @@ public class Die {
 	}
 	
 	void createDD() {
+		this.cost = 3;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
@@ -190,6 +211,7 @@ public class Die {
 	}
 	
 	void createQW() {
+		this.cost = 7;
 		SideList.Add (new Side(0,0,0,0,0,0,0,0,6,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(0,1,0,0,0,0,0,0,7,this));
@@ -199,6 +221,7 @@ public class Die {
 	}
 	
 	void createDP() {
+		this.cost = 5;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
@@ -208,6 +231,7 @@ public class Die {
 	}
 	
 	void createS() {
+		this.cost = 4;
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(0,0,0,0,0,0,0,0,19,this));
@@ -217,6 +241,7 @@ public class Die {
 	}
 	
 	void createG() {
+		this.cost = 5;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
@@ -226,6 +251,7 @@ public class Die {
 	}
 	
 	void createD() {
+		this.cost = 5;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
@@ -235,6 +261,7 @@ public class Die {
 	}
 	
 	void createV() {
+		this.cost = 9;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
@@ -244,6 +271,7 @@ public class Die {
 	}
 	
 	void createL() {
+		this.cost = 4;
 		SideList.Add (new Side(1,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
 		SideList.Add (new Side(2,0,0,0,0,0,0,0,-1,this));
@@ -262,11 +290,81 @@ public class Die {
 		}
 		return false;
 	}
-
+	public bool IsCreature(){
+		for(int i=0; i<SideList.Count; i++){
+			if(SideList[i].glory > 0){
+				return true;
+			}
+		}
+		return false;
+	}
 	public bool IsActiveCreature(){
 		if(this.ActiveSide.glory != 0)
 			return true;
 		else
 			return false;
 	}
+	
+	public float averageQuid(){
+		float ret = 0;
+		for(int i=0; i<SideList.Count; i++){
+			ret += (float)SideList[i].quiddity;
+		}
+		return ret/6f;
+	}
+
+	public float averageAttack(){
+		float ret = 0;
+		for(int i=0; i<SideList.Count; i++){
+			ret += (float)SideList[i].power;
+		}
+		return ret/6f;
+	}
+
+	public float averageDefense(){
+		float ret = 0;
+		for(int i=0; i<SideList.Count; i++){
+			ret += (float)SideList[i].toughness;
+		}
+		return ret/6f;
+	}
+
+	public float averageGlory(){
+		float ret = 0;
+		for(int i=0; i<SideList.Count; i++){
+			ret += (float)SideList[i].glory;
+		}
+		return ret/6f;
+	}
+
+	public float NumCreatureSides(){
+		float ret = 0;
+		for(int i=0; i<SideList.Count; i++){
+			if(SideList[i].glory > 0){
+				ret++;
+			}
+		}
+		return ret;
+	}
+
+	public float ProbRollDefLessThan(float avgatt){
+		float sides = 0;
+		for(int i=0; i<SideList.Count; i++){
+			if(SideList[i].toughness < avgatt){
+				sides++;
+			}
+		}
+		return sides/6f;
+	}
+
+	public float ProbRollAttackGreaterThan(int def){
+		float sides = 0;
+		for(int i=0; i<SideList.Count; i++){
+			if(SideList[i].power > def){
+				sides++;
+			}
+		}
+		return sides/6f;
+	}
+	
 }

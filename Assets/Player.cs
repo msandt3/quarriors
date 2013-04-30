@@ -11,6 +11,7 @@ public class Player{
 	public List<Die> ReadyArea;
 	public List<Die> SpentPile;
 	public List<Die> UsedPile;
+	public List<Die> tempPool;
 	public List<Side> SummonedCreatures;
 	public bool HasCreatures;
 	public List<string> tags;
@@ -31,6 +32,7 @@ public class Player{
 		ReadyArea = new List<Die>();
 		SpentPile = new List<Die>();
 		UsedPile = new List<Die>();
+		tempPool = new List<Die>();
 		for (int i = 0; i < 8; i++) {
 			Bag.Add (new Die("BQ"));
 		}
@@ -49,7 +51,20 @@ public class Player{
 		}
 	}
 	
-	void BagtoActive(int times) {
+	public float AverageQuiddity1() {
+		float aq = 0;
+		List<Die> allDie = new List<Die>();
+		allDie.AddRange (Bag);
+		allDie.AddRange (ActivePool);
+		allDie.AddRange (UsedPile);
+		allDie.AddRange (ReadyArea);
+		for (int i = 0; i < allDie.Count; i++) {
+			aq += (float) allDie[i].averageQuid ();
+		}
+		return aq;
+	}
+	
+	public void BagtoActive(int times) {
 		Shuffle (Bag);
 		for (int i = 0; i < times; i++){
 			if (Bag.Count != 0) {
@@ -201,6 +216,100 @@ public class Player{
 	
 	public void CullDie(Die d){
 		this.UsedPile.Remove(d);
+	}
+	
+	public float AverageQuiddity() {
+		float aq = 0;
+		List<Die> allDie = new List<Die>();
+		allDie.AddRange (Bag);
+		allDie.AddRange (ActivePool);
+		allDie.AddRange (UsedPile);
+		allDie.AddRange (ReadyArea);
+		for (int i = 0; i < allDie.Count; i++) {
+			aq += (float) allDie[i].averageQuid ();
+		}
+		return aq/allDie.Count;
+	}
+
+	public float AverageAttack() {
+		float aq = 0;
+		List<Die> allDie = new List<Die>();
+		allDie.AddRange (Bag);
+		allDie.AddRange (ActivePool);
+		allDie.AddRange (UsedPile);
+		allDie.AddRange (ReadyArea);
+		for (int i = 0; i < allDie.Count; i++) {
+			aq += (float) allDie[i].averageAttack ();
+		}
+		return aq/(float)allDie.Count;
+	}
+
+	public float AverageDefense() {
+		float aq = 0;
+		List<Die> allDie = new List<Die>();
+		allDie.AddRange (Bag);
+		allDie.AddRange (ActivePool);
+		allDie.AddRange (UsedPile);
+		allDie.AddRange (ReadyArea);
+		for (int i = 0; i < allDie.Count; i++) {
+			aq += (float) allDie[i].averageDefense ();
+		}
+		return aq/(float)allDie.Count;
+	}
+
+	public float AverageGlory() {
+		float aq = 0;
+		List<Die> allDie = new List<Die>();
+		allDie.AddRange (Bag);
+		allDie.AddRange (ActivePool);
+		allDie.AddRange (UsedPile);
+		allDie.AddRange (ReadyArea);
+		for (int i = 0; i < allDie.Count; i++) {
+			aq += (float) allDie[i].averageGlory ();
+		}
+		return aq/(float)allDie.Count;
+	}
+
+	public float ProbRollingDieToKill(Die d){
+		float totalprob = 0;
+		for(int i=0; i<Bag.Count; i++){
+			if(Bag[i].IsCreature()){
+				float defprob = Bag[i].ProbRollAttackGreaterThan(d.ActiveSide.toughness);
+				totalprob += ((1f/(float)Bag.Count)) * defprob;
+			}
+		}
+		return totalprob;
+	}
+
+	public float ProbGettingKilledBy(Die d){
+		float totalprob = 0;
+		for(int i=0; i<Bag.Count; i++){
+			if(Bag[i].IsCreature()){
+				float attprob = Bag[i].ProbRollDefLessThan(d.averageAttack());
+				totalprob += ((1f/(float)Bag.Count)) * attprob;
+			}
+		}
+		return totalprob;
+	}
+
+	public void SummonDie(Die d){
+		this.ActiveQuid -= d.ActiveSide.creatureCost;
+		ActivePool.Remove(d);
+		ReadyArea.Add(d);
+	}
+
+	public void BuyDie(Die d){
+		this.ActiveQuid -= d.cost;
+		this.UsedPile.Add(d);
+	}
+
+	public List<Die> GetCreaturesInActive(){
+		List<Die> ret = new List<Die>();
+		for(int i=0; i<ActivePool.Count; i++){
+			if(ActivePool[i].IsActiveCreature())
+				ret.Add (ActivePool[i]);
+		}
+		return ret;
 	}
 		
 }

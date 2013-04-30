@@ -6,7 +6,7 @@ public class Game {
 	public List<Card> Cards { get; set; }
 	public Player p1 { get; set; }
 	public Player p2 { get; set; }
-	private int turn;
+	public int turn;
 	private int phase;
 	
 	
@@ -15,7 +15,7 @@ public class Game {
 		Cards = new List<Card>();
 		p1 = new Player();
 		p2 = new Player();
-		turn = 1;
+		turn = 0;
 		phase = 1;
 	}
 	
@@ -26,15 +26,14 @@ public class Game {
 		else
 			return false;
 	}
-	
-	public Die BuyDie(string name){
+	public Die BuyDie(Die d){
 		foreach(Card card in Cards){
-			if(card.Name == name){
+			if(card.Name == d.tag){
 				card.DiceRemaining--;
 				break;
 			}
 		}
-		Die newDie = new Die(name);
+		Die newDie = new Die(d.tag);
 		return newDie;
 	}
 	

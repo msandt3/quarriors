@@ -197,6 +197,7 @@
     <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardSlideRight.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardZoom.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Game\Cards\LocationZoom.cs" />
+    <Compile Include="Assets\QuarriorAgent.cs" />
     <Compile Include="Assets\Side.cs" />
     <Compile Include="Assets\iTween\Plugins\iTween.cs" />
     <Compile Include="Assets\iTween\Sample\MoveSample.cs" />
