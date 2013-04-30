@@ -276,5 +276,25 @@ public class Player{
 		}
 		return totalprob;
 	}
+	
+	public void SummonDie(Die d){
+		this.ActiveQuid -= d.ActiveSide.creatureCost;
+		ActivePool.Remove(d);
+		ReadyArea.Add(d);
+	}
+	
+	public void BuyDie(Die d){
+		this.ActiveQuid -= d.cost;
+		this.UsedPile.Add(d);
+	}
+	
+	public List<Die> GetCreaturesInActive(){
+		List<Die> ret = new List<Die>();
+		for(int i=0; i<ActivePool.Count; i++){
+			if(ActivePool[i].IsActiveCreature())
+				ret.Add (ActivePool[i]);
+		}
+		return ret;
+	}
 		
 }

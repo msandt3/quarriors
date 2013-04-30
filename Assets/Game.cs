@@ -27,14 +27,14 @@ public class Game {
 			return false;
 	}
 	
-	public Die BuyDie(string name){
+	public Die BuyDie(Die d){
 		foreach(Card card in Cards){
-			if(card.Name == name){
+			if(card.Name == d.tag){
 				card.DiceRemaining--;
 				break;
 			}
 		}
-		Die newDie = new Die(name);
+		Die newDie = new Die(d.tag);
 		return newDie;
 	}
 	
