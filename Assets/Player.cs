@@ -202,5 +202,79 @@ public class Player{
 	public void CullDie(Die d){
 		this.UsedPile.Remove(d);
 	}
+	
+	public float AverageQuiddity() {
+		float aq = 0;
+		List<Die> allDie = new List<Die>();
+		allDie.AddRange (Bag);
+		allDie.AddRange (ActivePool);
+		allDie.AddRange (UsedPile);
+		allDie.AddRange (ReadyArea);
+		for (int i = 0; i < allDie.Count; i++) {
+			aq += (float) allDie[i].averageQuid ();
+		}
+		return aq/allDie.Count;
+	}
+	
+	public float AverageAttack() {
+		float aq = 0;
+		List<Die> allDie = new List<Die>();
+		allDie.AddRange (Bag);
+		allDie.AddRange (ActivePool);
+		allDie.AddRange (UsedPile);
+		allDie.AddRange (ReadyArea);
+		for (int i = 0; i < allDie.Count; i++) {
+			aq += (float) allDie[i].averageAttack ();
+		}
+		return aq/(float)allDie.Count;
+	}
+	
+	public float AverageDefense() {
+		float aq = 0;
+		List<Die> allDie = new List<Die>();
+		allDie.AddRange (Bag);
+		allDie.AddRange (ActivePool);
+		allDie.AddRange (UsedPile);
+		allDie.AddRange (ReadyArea);
+		for (int i = 0; i < allDie.Count; i++) {
+			aq += (float) allDie[i].averageDefense ();
+		}
+		return aq/(float)allDie.Count;
+	}
+	
+	public float AverageGlory() {
+		float aq = 0;
+		List<Die> allDie = new List<Die>();
+		allDie.AddRange (Bag);
+		allDie.AddRange (ActivePool);
+		allDie.AddRange (UsedPile);
+		allDie.AddRange (ReadyArea);
+		for (int i = 0; i < allDie.Count; i++) {
+			aq += (float) allDie[i].averageGlory ();
+		}
+		return aq/(float)allDie.Count;
+	}
+	
+	public float ProbRollingDieToKill(Die d){
+		float totalprob = 0;
+		for(int i=0; i<Bag.Count; i++){
+			if(Bag[i].IsCreature()){
+				float defprob = Bag[i].ProbRollAttackGreaterThan(d.ActiveSide.toughness);
+				totalprob += ((1f/(float)Bag.Count) + 6) * defprob;
+			}
+		}
+		return totalprob;
+	}
+	
+	public float ProbGettingKilledBy(Die d){
+		float totalprob = 0;
+		for(int i=0; i<Bag.Count; i++){
+			if(Bag[i].IsCreature()){
+				float attprob = Bag[i].ProbRollDefLessThan(d.averageAttack());
+				totalprob += ((1f/(float)Bag.Count) + 6) * attprob;
+			}
+		}
+		return totalprob;
+	}
 		
 }

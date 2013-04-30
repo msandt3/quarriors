@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6BD91AB4-9323-DAC3-4AA0-5FE4F1A2CA15}</ProjectGuid>
+    <ProjectGuid>{27482030-DA6D-9368-872E-1141228BAD3B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>
@@ -192,6 +192,7 @@
     <Compile Include="Assets\Prefabs\Scripts\Effects\Reroll.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Effects\ShapingEffect.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Effects\SingleBurstEffect.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Game\AI\QuarriorAgent.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardAreaController.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardSlideLeft.cs" />
     <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardSlideRight.cs" />
@@ -264,7 +265,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{647BBA43-314A-8B28-3E86-6DD896568923}</Project>
+      <Project>{C18E85D9-3C33-8635-D1C9-4EE748DB9D5C}</Project>
       <Name>Assembly-CSharp-firstpass-vs</Name>
     </ProjectReference>
   </ItemGroup>

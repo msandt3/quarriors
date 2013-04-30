@@ -194,11 +194,11 @@ public class GameEngine : MonoBehaviour {
 			case 13:
 				// Needs to be fixed
 				Debug.Log ("state 13");
-				gcw.showBuyWindow (GameState.p1.ActivePool);
+				gcw.showBuyWindow (this.CardController.dice);
 				state = 14;
 				break;
 			case 14:
-				Die d5 = gcw.showBuyWindow (GameState.p1.ActivePool);
+				Die d5 = gcw.showBuyWindow (this.CardController.dice);
 				if(gcw.hasChosen) {
 					if(d5 == null) {
 						state = 15;
