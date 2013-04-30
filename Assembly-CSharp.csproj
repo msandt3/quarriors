@@ -1,274 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.20506</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{27482030-DA6D-9368-872E-1141228BAD3B}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>
-    </RootNamespace>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{27482030-DA6D-9368-872E-1141228BAD3B}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_1_2;UNITY_4_1;ENABLE_PROFILER;UNITY_EDITOR</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0169</NoWarn>
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_1_2;UNITY_4_1;ENABLE_PROFILER;UNITY_EDITOR</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>Temp\bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0169</NoWarn>
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+	<Reference Include="System" />
     <Reference Include="System.XML" />
-    <Reference Include="System.Core" />
-    <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
-    </Reference>
+	<Reference Include="System.Core" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Die.cs" />
-    <Compile Include="Assets\GUIChoiceWindows.cs" />
-    <Compile Include="Assets\GUITestingScript.cs" />
-    <Compile Include="Assets\Game.cs" />
-    <Compile Include="Assets\GameEngine.cs" />
-    <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\(Unity Pro) NavMesh Pathfinding\Agent.cs" />
-    <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\3D integration\App.cs" />
-    <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\3D integration\Arrow.cs" />
-    <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\Clipping\ClipSprites.cs" />
-    <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\DragTest\DragTest.cs" />
-    <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\DragTest\DragTestMain.cs" />
-    <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\Multi Resolution Art\MultiResolution.cs" />
-    <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\Persistance\PersistentSprite.cs" />
-    <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\RotateTowards\TestRotateTowards.cs" />
-    <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\OTTextChalc.cs" />
-    <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\OTTextImages.cs" />
-    <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\OTTextPortago.cs" />
-    <Compile Include="Assets\Orthello\Examples\1 - Paralax scrolling FilledSprite\CExample1.cs" />
-    <Compile Include="Assets\Orthello\Examples\2 - Moving collidable sprites\CBlock2.cs" />
-    <Compile Include="Assets\Orthello\Examples\2 - Moving collidable sprites\CExample2.cs" />
-    <Compile Include="Assets\Orthello\Examples\2 - Moving collidable sprites\CStar2.cs" />
-    <Compile Include="Assets\Orthello\Examples\3 - Shooting Asteroids\CAsteroid3.cs" />
-    <Compile Include="Assets\Orthello\Examples\3 - Shooting Asteroids\CBullet3.cs" />
-    <Compile Include="Assets\Orthello\Examples\3 - Shooting Asteroids\CExample3.cs" />
-    <Compile Include="Assets\Orthello\Examples\4 - Follow Target View\CExample4.cs" />
-    <Compile Include="Assets\Orthello\Examples\4 - Follow Target View\CMover4.cs" />
-    <Compile Include="Assets\Orthello\Examples\5 - Creating At Runtime\CExample5.cs" />
-    <Compile Include="Assets\Orthello\Examples\6 - Physics\CExample6.cs" />
-    <Compile Include="Assets\Orthello\Examples\7 - Tweening\CExample7.cs" />
-    <Compile Include="Assets\Orthello\Examples\7 - Tweening\CStar7_1.cs" />
-    <Compile Include="Assets\Orthello\Examples\7 - Tweening\CStar7_2.cs" />
-    <Compile Include="Assets\Orthello\Examples\8 - Prefab-Support\test8.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\OTView.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTAtlasData.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlas.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasBMFontXml.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasCocos2D.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasCocos2DFnt.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasImport.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasImportText.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasImportXML.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasOGRE.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasSparrow.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasZwoptex.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTAnimatingSprite.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTAnimatingSpritePassive.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTAnimation.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTAnimationFrameset.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTClipSprite.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTClippingAreaSprite.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTContainer.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTFilledSprite.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTGradientSprite.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTScale9Sprite.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTSprite.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTSpriteSheet.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTTextSprite.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEase.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseBackIn.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseBackInOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseBackOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseBounceIn.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseBounceInOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseBounceOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseCircIn.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseCircInOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseCircOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseCubicIn.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseCubicInOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseCubicOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseElasticIn.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseElasticInOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseElasticOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseExpoIn.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseExpoInOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseExpoOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseLinear.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuadIn.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuadInOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuadOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuartIn.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuartInOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuartOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuintIn.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuintInOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuintOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseSineIn.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseSineInOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseSineOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseStrongIn.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseStrongInOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseStrongOut.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEasing.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTTween.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTTweenController.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OT.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTController.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTDevTrace.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTHelper.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTMatRef.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTObject.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTObjectType.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTPB.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTSounds.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTTimeCycle.cs" />
-    <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTTouch.cs" />
-    <Compile Include="Assets\Player.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Abilities\Ability.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Abilities\VictoryAbility.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\AssistantCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\PortalCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\QuiddityCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Card.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\DeathDealerCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\DefenderCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\DevoteeCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\DragonCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\GoblinCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\HagCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\OozeCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\SpiritCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\WarriorCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\WizardCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\DeathSpellCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\GrowthSpellCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\LifeSpellCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\ShapingSpellCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\VictorySpellCard.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\AssitantEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\AttachEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\BurstEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\CombinedBurstEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\CreatureEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\DeathBurstEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\DeathEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\DoubleBurstEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\DrawAndRoll.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\Effect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\GainQuiddity.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\GrowthEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\ImmediateEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\LifeEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\MultipleEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\ReactionEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\Reroll.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\ShapingEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Effects\SingleBurstEffect.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Game\AI\QuarriorAgent.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardAreaController.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardSlideLeft.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardSlideRight.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardZoom.cs" />
-    <Compile Include="Assets\Prefabs\Scripts\Game\Cards\LocationZoom.cs" />
-    <Compile Include="Assets\Side.cs" />
-    <Compile Include="Assets\iTween\Plugins\iTween.cs" />
-    <Compile Include="Assets\iTween\Sample\MoveSample.cs" />
-    <Compile Include="Assets\iTween\Sample\RotateSample.cs" />
-    <Compile Include="Assets\iTween\Sample\SampleInfo.cs" />
-    <None Include="Assets\Quarrior Sprites\Devotee.xml" />
-    <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
-    <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
-    <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
-    <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
-    <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
-    <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
-    <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\lorem.txt" />
-    <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\Atlases\russian.txt" />
-    <None Include="Assets\Quarrior Sprites\ShapingSpell.xml" />
-    <None Include="Assets\Quarrior Sprites\DeathDealer.xml" />
-    <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
-    <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
-    <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
-    <None Include="Assets\Quarrior Sprites\ReadyAreaFull.xml" />
-    <None Include="Assets\Quarrior Sprites\WarriorOfTheQuay.xml" />
-    <None Include="Assets\Orthello\Examples\4 - Follow Target View\-orthello-config.xml" />
-    <None Include="Assets\Quarrior Sprites\Wizard.xml" />
-    <None Include="Assets\Quarrior Sprites\QuiddityDice.xml" />
-    <None Include="Assets\Quarrior Sprites\ReadyArea.xml" />
-    <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-    <None Include="Assets\Orthello\-Read-Me.txt" />
-    <None Include="Assets\Quarrior Sprites\Hag.xml" />
-    <None Include="Assets\Quarrior Sprites\Ooze.xml" />
-    <None Include="Assets\Quarrior Sprites\PortalDice.xml" />
-    <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\orthello-font-30.txt" />
-    <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
-    <None Include="Assets\Orthello\-Update-Upgrade info.txt" />
-    <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\Atlases\img.xml" />
-    <None Include="Assets\Quarrior Sprites\Dragon.xml" />
-    <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
-    <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
-    <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
-    <None Include="Assets\Quarrior Sprites\Goblin.xml" />
-    <None Include="Assets\Quarrior Sprites\AssistantDice.xml" />
-    <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
-    <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\Atlases\glyph.xml" />
-    <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
-    <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
-    <None Include="Assets\Quarrior Sprites\GrowthSpell.xml" />
-    <None Include="Assets\Quarrior Sprites\LifeSpell.xml" />
-    <None Include="Assets\Quarrior Sprites\DeathSpell.xml" />
-    <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
-    <None Include="Assets\Quarrior Sprites\VictorySpell.xml" />
-    <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
-    <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
-    <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\Atlases\chalk.xml" />
-    <None Include="Assets\Orthello\Examples\0 - Simple Examples\Multi Resolution Art\atlas.xml" />
-    <None Include="Assets\Orthello\Standard Assets\OT\_Base\TintedAlpha.shader" />
-    <None Include="Assets\Orthello\Examples\0 - Simple Examples\RotateTowards\-read-me.txt" />
-    <None Include="Assets\Quarrior Sprites\Defender.xml" />
-    <None Include="Assets\Orthello\Examples\0 - Simple Examples\Persistance\-read-me.txt" />
-    <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\lorem-rus-utf8.txt" />
-    <None Include="Assets\Quarrior Sprites\Spirit.xml" />
-    <None Include="Assets\Quarrior Sprites\ReadyArea.txt" />
-    <None Include="Assets\Quarrior Sprites\level.txt" />
+     <Compile Include="Assets\Die.cs" />
+     <Compile Include="Assets\GUIChoiceWindows.cs" />
+     <Compile Include="Assets\GUITestingScript.cs" />
+     <Compile Include="Assets\Game.cs" />
+     <Compile Include="Assets\GameEngine.cs" />
+     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\(Unity Pro) NavMesh Pathfinding\Agent.cs" />
+     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\3D integration\App.cs" />
+     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\3D integration\Arrow.cs" />
+     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\Clipping\ClipSprites.cs" />
+     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\DragTest\DragTest.cs" />
+     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\DragTest\DragTestMain.cs" />
+     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\Multi Resolution Art\MultiResolution.cs" />
+     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\Persistance\PersistentSprite.cs" />
+     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\RotateTowards\TestRotateTowards.cs" />
+     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\OTTextChalc.cs" />
+     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\OTTextImages.cs" />
+     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\OTTextPortago.cs" />
+     <Compile Include="Assets\Orthello\Examples\1 - Paralax scrolling FilledSprite\CExample1.cs" />
+     <Compile Include="Assets\Orthello\Examples\2 - Moving collidable sprites\CBlock2.cs" />
+     <Compile Include="Assets\Orthello\Examples\2 - Moving collidable sprites\CExample2.cs" />
+     <Compile Include="Assets\Orthello\Examples\2 - Moving collidable sprites\CStar2.cs" />
+     <Compile Include="Assets\Orthello\Examples\3 - Shooting Asteroids\CAsteroid3.cs" />
+     <Compile Include="Assets\Orthello\Examples\3 - Shooting Asteroids\CBullet3.cs" />
+     <Compile Include="Assets\Orthello\Examples\3 - Shooting Asteroids\CExample3.cs" />
+     <Compile Include="Assets\Orthello\Examples\4 - Follow Target View\CExample4.cs" />
+     <Compile Include="Assets\Orthello\Examples\4 - Follow Target View\CMover4.cs" />
+     <Compile Include="Assets\Orthello\Examples\5 - Creating At Runtime\CExample5.cs" />
+     <Compile Include="Assets\Orthello\Examples\6 - Physics\CExample6.cs" />
+     <Compile Include="Assets\Orthello\Examples\7 - Tweening\CExample7.cs" />
+     <Compile Include="Assets\Orthello\Examples\7 - Tweening\CStar7_1.cs" />
+     <Compile Include="Assets\Orthello\Examples\7 - Tweening\CStar7_2.cs" />
+     <Compile Include="Assets\Orthello\Examples\8 - Prefab-Support\test8.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\OTView.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTAtlasData.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlas.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasBMFontXml.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasCocos2D.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasCocos2DFnt.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasImport.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasImportText.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasImportXML.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasOGRE.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasSparrow.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\Atlas\OTSpriteAtlasZwoptex.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTAnimatingSprite.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTAnimatingSpritePassive.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTAnimation.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTAnimationFrameset.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTClipSprite.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTClippingAreaSprite.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTContainer.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTFilledSprite.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTGradientSprite.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTScale9Sprite.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTSprite.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTSpriteSheet.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Graphics\Sprites\OTTextSprite.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEase.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseBackIn.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseBackInOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseBackOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseBounceIn.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseBounceInOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseBounceOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseCircIn.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseCircInOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseCircOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseCubicIn.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseCubicInOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseCubicOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseElasticIn.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseElasticInOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseElasticOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseExpoIn.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseExpoInOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseExpoOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseLinear.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuadIn.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuadInOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuadOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuartIn.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuartInOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuartOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuintIn.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuintInOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseQuintOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseSineIn.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseSineInOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseSineOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseStrongIn.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseStrongInOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEaseStrongOut.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTEasing.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTTween.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\Tweening\OTTweenController.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OT.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTController.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTDevTrace.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTHelper.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTMatRef.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTObject.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTObjectType.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTPB.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTSounds.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTTimeCycle.cs" />
+     <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTTouch.cs" />
+     <Compile Include="Assets\Player.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Abilities\Ability.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Abilities\VictoryAbility.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\AssistantCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\PortalCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Basic\QuiddityCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Card.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\DeathDealerCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\DefenderCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\DevoteeCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\DragonCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\GoblinCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\HagCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\OozeCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\SpiritCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\WarriorCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Creatures\WizardCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\DeathSpellCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\GrowthSpellCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\LifeSpellCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\ShapingSpellCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Cards\Spells\VictorySpellCard.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\AssitantEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\AttachEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\BurstEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\CombinedBurstEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\CreatureEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\DeathBurstEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\DeathEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\DoubleBurstEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\DrawAndRoll.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\Effect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\GainQuiddity.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\GrowthEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\ImmediateEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\LifeEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\MultipleEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\ReactionEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\Reroll.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\ShapingEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Effects\SingleBurstEffect.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Game\AI\QuarriorAgent.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardAreaController.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardSlideLeft.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardSlideRight.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Game\Cards\CardZoom.cs" />
+     <Compile Include="Assets\Prefabs\Scripts\Game\Cards\LocationZoom.cs" />
+     <Compile Include="Assets\Side.cs" />
+     <Compile Include="Assets\iTween\Plugins\iTween.cs" />
+     <Compile Include="Assets\iTween\Sample\MoveSample.cs" />
+     <Compile Include="Assets\iTween\Sample\RotateSample.cs" />
+     <Compile Include="Assets\iTween\Sample\SampleInfo.cs" />
+     <None Include="Assets\Quarrior Sprites\Devotee.xml" />
+     <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
+     <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\lorem.txt" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\Atlases\russian.txt" />
+     <None Include="Assets\Quarrior Sprites\ShapingSpell.xml" />
+     <None Include="Assets\Quarrior Sprites\DeathDealer.xml" />
+     <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
+     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\Quarrior Sprites\ReadyAreaFull.xml" />
+     <None Include="Assets\Quarrior Sprites\WarriorOfTheQuay.xml" />
+     <None Include="Assets\Orthello\Examples\4 - Follow Target View\-orthello-config.xml" />
+     <None Include="Assets\Quarrior Sprites\Wizard.xml" />
+     <None Include="Assets\Quarrior Sprites\QuiddityDice.xml" />
+     <None Include="Assets\Quarrior Sprites\ReadyArea.xml" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Orthello\-Read-Me.txt" />
+     <None Include="Assets\Quarrior Sprites\Hag.xml" />
+     <None Include="Assets\Quarrior Sprites\Ooze.xml" />
+     <None Include="Assets\Quarrior Sprites\PortalDice.xml" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\orthello-font-30.txt" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
+     <None Include="Assets\Orthello\-Update-Upgrade info.txt" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\Atlases\img.xml" />
+     <None Include="Assets\Quarrior Sprites\Dragon.xml" />
+     <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
+     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
+     <None Include="Assets\Quarrior Sprites\Goblin.xml" />
+     <None Include="Assets\Quarrior Sprites\AssistantDice.xml" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\Atlases\glyph.xml" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
+     <None Include="Assets\Quarrior Sprites\GrowthSpell.xml" />
+     <None Include="Assets\Quarrior Sprites\LifeSpell.xml" />
+     <None Include="Assets\Quarrior Sprites\DeathSpell.xml" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
+     <None Include="Assets\Quarrior Sprites\VictorySpell.xml" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\Atlases\chalk.xml" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\Multi Resolution Art\atlas.xml" />
+     <None Include="Assets\Orthello\Standard Assets\OT\_Base\TintedAlpha.shader" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\RotateTowards\-read-me.txt" />
+     <None Include="Assets\Quarrior Sprites\Defender.xml" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\Persistance\-read-me.txt" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\lorem-rus-utf8.txt" />
+     <None Include="Assets\Quarrior Sprites\Spirit.xml" />
+     <None Include="Assets\Quarrior Sprites\ReadyArea.txt" />
+     <None Include="Assets\Quarrior Sprites\level.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{C18E85D9-3C33-8635-D1C9-4EE748DB9D5C}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
+      <Project>{C18E85D9-3C33-8635-D1C9-4EE748DB9D5C}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{AA0B6C3F-E798-1F4C-095B-D836A0A73B47}</Project>
-      <Name>Assembly-UnityScript-firstpass</Name>
-    </ProjectReference>
+      <Project>{AA0B6C3F-E798-1F4C-095B-D836A0A73B47}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -278,4 +273,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>

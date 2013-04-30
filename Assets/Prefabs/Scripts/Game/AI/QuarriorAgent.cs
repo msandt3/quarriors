@@ -110,6 +110,7 @@ public class QuarriorAgent{
 	}
 	
 	public List<Die> SummonAction(int turn, List<Die> wilds){
+		List<Die> ret = new List<Die>();
 		do{
 			Die summonchoice = GetBestSummonable();
 			Die buychoice = GetBestToBuy(wilds);
@@ -124,6 +125,7 @@ public class QuarriorAgent{
 			}
 			//otherwise add the die to the return list & summon it
 			else{
+				ret.Add (summonchoice);
 				agent.SummonDie(summonchoice);
 			}
 		}while(agent.ActiveQuid > 0 && agent.ActivePool.Count > 0);
@@ -133,7 +135,7 @@ public class QuarriorAgent{
 	
 	public Die GetBestSummonable(){
 		Die ret = null;
-		float best = float.IsNegativeInfinity;
+		float best = Mathf.NegativeInfinity;
 		for(int i=0; i<agent.ActivePool.Count; i++){
 			if(agent.ActivePool[i].IsActiveCreature() && agent.ActiveQuid >= agent.ActivePool[i].ActiveSide.creatureCost){
 				if(SummonValue(agent.ActivePool[i]) > best){
@@ -147,7 +149,7 @@ public class QuarriorAgent{
 	
 	public Die GetBestToBuy(List<Die> wilds){
 		Die ret = null;
-		float best = float.IsNegativeInfinity;
+		float best = Mathf.NegativeInfinity;
 		for(int i=0; i<wilds.Count; i++){
 			if(wilds[i].IsCreature() && agent.ActiveQuid >= wilds[i].cost){
 				if(BuyValue(wilds[i]) > best){
@@ -177,5 +179,6 @@ public class QuarriorAgent{
 	}
 	
 	public List<Die> DefendOrder(int attack){
+		
 	}
 }
